@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import { MapPin, X } from "lucide-react";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
-import { LinkButton } from "@/components/Button";
+import { Button, LinkButton } from "@/components/Button";
 import { ListingCard } from "@/components/ListingCard";
 import { publishedListings } from "@/data/listings";
 import { formatKg } from "@/lib/format";
 import { getSession } from "@/lib/session";
+import { getDriverFavoriteLocations } from "@/data/store";
+import {
+  addFavoriteLocation,
+  removeFavoriteLocation,
+} from "@/lib/auth-actions";
 
 export const metadata: Metadata = {
   title: "Sjåførpanel",
@@ -14,8 +20,25 @@ export const metadata: Metadata = {
 
 export default async function DriverDashboard() {
   const session = await getSession();
-  const upcoming = publishedListings().slice(0, 2);
+  const userId = session?.userId ?? "";
   const firstName = session?.name.split(" ")[0] ?? "der";
+
+  const all = publishedListings();
+  const favorites = userId ? getDriverFavoriteLocations(userId) : [];
+
+  const cityOptions = Array.from(
+    new Set(all.flatMap((l) => [l.fromCity, l.toCity])),
+  )
+    .filter((c) => !favorites.includes(c))
+    .sort((a, b) => a.localeCompare(b, "nb"));
+
+  const matching =
+    favorites.length > 0
+      ? all.filter(
+          (l) => favorites.includes(l.fromCity) || favorites.includes(l.toCity),
+        )
+      : [];
+
   return (
     <div className="space-y-8">
       <header>
@@ -23,8 +46,8 @@ export default async function DriverDashboard() {
           Hei {firstName}, klar for en tur?
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          Se dine aktive forespørsler, nye annonser fra utleiere du følger,
-          og total CO₂-besparing du har bidratt med.
+          Se dine aktive forespørsler, nye annonser som matcher
+          favorittstedene dine, og total CO₂-besparing du har bidratt med.
         </p>
       </header>
 
@@ -34,14 +57,18 @@ export default async function DriverDashboard() {
             Aktive forespørsler
           </p>
           <p className="mt-1 font-heading text-2xl font-semibold">2</p>
-          <p className="text-xs text-[color:var(--muted)] mt-1">1 godkjent · 1 avventer</p>
+          <p className="text-xs text-[color:var(--muted)] mt-1">
+            1 godkjent · 1 avventer
+          </p>
         </Card>
         <Card className="p-5">
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
             Kommende oppdrag
           </p>
           <p className="mt-1 font-heading text-2xl font-semibold">1</p>
-          <p className="text-xs text-[color:var(--muted)] mt-1">Oslo → Bergen, 3. mai</p>
+          <p className="text-xs text-[color:var(--muted)] mt-1">
+            Oslo → Bergen, 3. mai
+          </p>
         </Card>
         <Card className="p-5">
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
@@ -55,16 +82,117 @@ export default async function DriverDashboard() {
 
       <section>
         <div className="flex items-center justify-between flex-wrap gap-3">
-          <h2 className="font-heading text-xl font-semibold">Anbefalt for deg</h2>
+          <div>
+            <h2 className="font-heading text-xl font-semibold">
+              Favorittsteder
+            </h2>
+            <p className="mt-1 text-sm text-[color:var(--muted)]">
+              Legg til byer du gjerne reiser til eller fra. Vi viser alle
+              aktive annonser som starter eller ender der.
+            </p>
+          </div>
+          <Badge tone="eco">
+            <MapPin className="h-3.5 w-3.5" aria-hidden />
+            {favorites.length} {favorites.length === 1 ? "sted" : "steder"}
+          </Badge>
+        </div>
+
+        <Card className="mt-4 p-5 space-y-4">
+          {favorites.length === 0 ? (
+            <p className="text-sm text-[color:var(--muted)]">
+              Ingen favorittsteder enda. Legg til Bergen, Oslo eller andre byer
+              under for å se matchende annonser.
+            </p>
+          ) : (
+            <ul className="flex flex-wrap gap-2">
+              {favorites.map((city) => (
+                <li key={city}>
+                  <form action={removeFavoriteLocation}>
+                    <input type="hidden" name="city" value={city} />
+                    <button
+                      type="submit"
+                      className="inline-flex items-center gap-1.5 rounded-full pl-3 pr-2 py-1.5 text-sm bg-[color:var(--accent)]/40 text-[color:var(--primary)] border border-[color:var(--accent)] hover:bg-[color:var(--accent)] transition-colors"
+                      aria-label={`Fjern ${city}`}
+                    >
+                      <MapPin className="h-3.5 w-3.5" aria-hidden />
+                      {city}
+                      <X className="h-3.5 w-3.5" aria-hidden />
+                    </button>
+                  </form>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <form
+            action={addFavoriteLocation}
+            className="flex flex-wrap items-end gap-3 pt-2 border-t border-[color:var(--border)]"
+          >
+            <div className="flex-1 min-w-[200px]">
+              <label
+                htmlFor="city"
+                className="block text-xs font-medium text-[color:var(--muted)] mb-1"
+              >
+                Legg til favorittsted
+              </label>
+              <select
+                id="city"
+                name="city"
+                required
+                defaultValue=""
+                className="block w-full h-10 px-3 rounded-lg border border-[color:var(--border)] bg-[color:var(--surface)] text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--secondary)]"
+              >
+                <option value="" disabled>
+                  Velg by …
+                </option>
+                {cityOptions.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <Button type="submit">Legg til</Button>
+          </form>
+        </Card>
+      </section>
+
+      <section>
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <h2 className="font-heading text-xl font-semibold">
+            {favorites.length === 0
+              ? "Anbefalt for deg"
+              : "Annonser som matcher favorittene dine"}
+          </h2>
           <LinkButton href="/biler" variant="secondary" size="sm">
             Se alle annonser
           </LinkButton>
         </div>
-        <div className="mt-4 grid gap-5 md:grid-cols-2">
-          {upcoming.map((l) => (
-            <ListingCard key={l.id} listing={l} />
-          ))}
-        </div>
+        {favorites.length === 0 ? (
+          <div className="mt-4 grid gap-5 md:grid-cols-2">
+            {all.slice(0, 2).map((l) => (
+              <ListingCard key={l.id} listing={l} />
+            ))}
+          </div>
+        ) : matching.length === 0 ? (
+          <Card className="mt-4 p-6 text-sm text-[color:var(--muted)]">
+            Ingen aktive annonser matcher favorittene dine akkurat nå. Vi
+            varsler deg så snart noe dukker opp.
+          </Card>
+        ) : (
+          <>
+            <p className="mt-2 text-sm text-[color:var(--muted)]">
+              {matching.length}{" "}
+              {matching.length === 1 ? "annonse" : "annonser"} fra eller til{" "}
+              {favorites.join(", ")}.
+            </p>
+            <div className="mt-4 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {matching.map((l) => (
+                <ListingCard key={l.id} listing={l} />
+              ))}
+            </div>
+          </>
+        )}
       </section>
 
       <section>
@@ -72,7 +200,9 @@ export default async function DriverDashboard() {
         <Card className="mt-4 p-5 flex items-center justify-between flex-wrap gap-3">
           <div>
             <p className="font-medium">Hertz Norge</p>
-            <p className="text-sm text-[color:var(--muted)]">3 nye annonser i uka</p>
+            <p className="text-sm text-[color:var(--muted)]">
+              3 nye annonser i uka
+            </p>
           </div>
           <Badge tone="success">Følger</Badge>
         </Card>

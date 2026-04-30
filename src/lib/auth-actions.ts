@@ -2,7 +2,12 @@
 
 import { redirect } from "next/navigation";
 import { getUserById } from "@/data/users";
-import { setCompanyStatus, setUserStatus } from "@/data/store";
+import {
+  addDriverFavoriteLocation,
+  removeDriverFavoriteLocation,
+  setCompanyStatus,
+  setUserStatus,
+} from "@/data/store";
 import { setSession, clearSession, getSession } from "./session";
 import { revalidatePath } from "next/cache";
 
@@ -71,4 +76,28 @@ export async function reactivateUser(formData: FormData) {
   const id = String(formData.get("userId") ?? "");
   setUserStatus(id, "active");
   revalidatePath("/admin/brukere");
+}
+
+async function requireDriver(): Promise<string> {
+  const session = await getSession();
+  if (!session || session.role !== "driver") {
+    throw new Error("Bare innloggede sjåfører kan gjøre dette");
+  }
+  return session.userId;
+}
+
+export async function addFavoriteLocation(formData: FormData) {
+  const userId = await requireDriver();
+  const city = String(formData.get("city") ?? "").trim();
+  if (!city) return;
+  addDriverFavoriteLocation(userId, city);
+  revalidatePath("/dashboard");
+}
+
+export async function removeFavoriteLocation(formData: FormData) {
+  const userId = await requireDriver();
+  const city = String(formData.get("city") ?? "").trim();
+  if (!city) return;
+  removeDriverFavoriteLocation(userId, city);
+  revalidatePath("/dashboard");
 }

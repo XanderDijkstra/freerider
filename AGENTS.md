@@ -4,6 +4,12 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+# Branching policy — push to `main`
+
+Owner directive: **all changes go to `main`**. Vercel's production branch is
+`main`, so anything else won't deploy. Do not push to feature branches unless
+the user explicitly asks for a PR-style review flow on a specific change.
+
 # FreeRider.no — codebase orientation
 
 Norwegian marketplace where rental companies (Hertz, Avis, Sixt, Budget …) post

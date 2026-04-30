@@ -3,14 +3,17 @@ import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
 import { LinkButton } from "@/components/Button";
 import { vehicles } from "@/data/vehicles";
+import { getSession } from "@/lib/session";
 
 export const metadata: Metadata = {
   title: "Flåte",
   robots: { index: false },
 };
 
-export default function FlateePage() {
-  const myVehicles = vehicles.filter((v) => v.companyId === "c-hertz");
+export default async function FlateePage() {
+  const session = await getSession();
+  const companyId = session?.companyId ?? "c-hertz";
+  const myVehicles = vehicles.filter((v) => v.companyId === companyId);
   return (
     <div className="space-y-6">
       <header className="flex items-end justify-between flex-wrap gap-3">

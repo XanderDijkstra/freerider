@@ -5,23 +5,26 @@ import { LinkButton } from "@/components/Button";
 import { ListingCard } from "@/components/ListingCard";
 import { publishedListings } from "@/data/listings";
 import { formatKg } from "@/lib/format";
+import { getSession } from "@/lib/session";
 
 export const metadata: Metadata = {
   title: "Sjåførpanel",
   robots: { index: false },
 };
 
-export default function DriverDashboard() {
+export default async function DriverDashboard() {
+  const session = await getSession();
   const upcoming = publishedListings().slice(0, 2);
+  const firstName = session?.name.split(" ")[0] ?? "der";
   return (
     <div className="space-y-8">
       <header>
         <h1 className="font-heading text-2xl md:text-3xl font-semibold">
-          Hei, klar for en tur?
+          Hei {firstName}, klar for en tur?
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
           Se dine aktive forespørsler, nye annonser fra utleiere du følger,
-          og total CO₂-besparing du har bidrege med.
+          og total CO₂-besparing du har bidratt med.
         </p>
       </header>
 
@@ -35,7 +38,7 @@ export default function DriverDashboard() {
         </Card>
         <Card className="p-5">
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-            Komande oppdrag
+            Kommende oppdrag
           </p>
           <p className="mt-1 font-heading text-2xl font-semibold">1</p>
           <p className="text-xs text-[color:var(--muted)] mt-1">Oslo → Bergen, 3. mai</p>
@@ -69,7 +72,7 @@ export default function DriverDashboard() {
         <Card className="mt-4 p-5 flex items-center justify-between flex-wrap gap-3">
           <div>
             <p className="font-medium">Hertz Norge</p>
-            <p className="text-sm text-[color:var(--muted)]">3 nye annonser i veka</p>
+            <p className="text-sm text-[color:var(--muted)]">3 nye annonser i uka</p>
           </div>
           <Badge tone="success">Følger</Badge>
         </Card>

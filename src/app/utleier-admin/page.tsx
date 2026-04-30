@@ -1,49 +1,89 @@
 import type { Metadata } from "next";
 import { Card } from "@/components/Card";
+import { Badge } from "@/components/Badge";
 import { LinkButton } from "@/components/Button";
 import { listingsByCompany } from "@/data/listings";
-import { getVehicleById } from "@/data/vehicles";
+import { getVehicleById, vehicles } from "@/data/vehicles";
 import { totalCo2SavedKg } from "@/lib/co2";
 import { formatKg } from "@/lib/format";
+import { getSession } from "@/lib/session";
+import { getCompanyById } from "@/data/companies";
+import { getCompanyStatus } from "@/data/store";
 
 export const metadata: Metadata = {
   title: "Utleier-admin",
   robots: { index: false },
 };
 
-export default function CompanyAdminHome() {
-  const list = listingsByCompany("c-hertz");
+export default async function CompanyAdminHome() {
+  const session = await getSession();
+  const companyId = session?.companyId ?? "c-hertz";
+  const company = getCompanyById(companyId)!;
+  const status = getCompanyStatus(companyId);
+
+  const list = listingsByCompany(companyId);
+  const fleet = vehicles.filter((v) => v.companyId === companyId);
   const totalSaved = totalCo2SavedKg(
     list.map((l) => {
       const v = getVehicleById(l.vehicleId)!;
       return { distanceKm: l.distanceKm, fuelType: v.fuelType };
     }),
   );
+
   return (
     <div className="space-y-8">
       <header className="flex items-end justify-between flex-wrap gap-3">
         <div>
           <h1 className="font-heading text-2xl md:text-3xl font-semibold">
-            Oversikt
+            {company.name}
           </h1>
-          <p className="mt-1 text-[color:var(--muted)]">
-            Status på flåten og de aktive annonsene dine.
-          </p>
+          <div className="mt-1 flex items-center gap-2 text-[color:var(--muted)]">
+            <span>Status:</span>
+            <Badge
+              tone={
+                status === "approved"
+                  ? "success"
+                  : status === "pending"
+                    ? "warning"
+                    : "error"
+              }
+            >
+              {status === "approved"
+                ? "Godkjent"
+                : status === "pending"
+                  ? "Avventer godkjenning"
+                  : "Suspendert"}
+            </Badge>
+          </div>
         </div>
         <div className="flex gap-2">
           <LinkButton href="/utleier-admin/annonser/ny" variant="primary" size="sm">
             Ny annonse
           </LinkButton>
-          <LinkButton href="/utleier-admin/fl%C3%A5te/ny" variant="secondary" size="sm">
+          <LinkButton
+            href="/utleier-admin/fl%C3%A5te/ny"
+            variant="secondary"
+            size="sm"
+          >
             Legg til bil
           </LinkButton>
         </div>
       </header>
 
+      {status !== "approved" ? (
+        <Card className="p-5 bg-[color:var(--warning)]/10 border-[color:var(--warning)]/30">
+          <p className="text-sm">
+            {status === "pending"
+              ? "Kontoen din er under godkjenning av plattformen. Du kan se alle funksjoner, men kan ikke publisere annonser før admin har godkjent kontoen."
+              : "Kontoen er suspendert. Ta kontakt med plattform-admin for å åpne kontoen igjen."}
+          </p>
+        </Card>
+      ) : null}
+
       <div className="grid md:grid-cols-4 gap-4">
+        <Stat label="Biler i flåten" value={String(fleet.length)} />
         <Stat label="Aktive annonser" value={String(list.length)} />
-        <Stat label="Avventande forespørsler" value="6" />
-        <Stat label="Fullført denne mnd" value="14" />
+        <Stat label="Avventende forespørsler" value="3" />
         <Stat
           label="CO₂ spart denne mnd"
           value={formatKg(totalSaved)}
@@ -61,7 +101,7 @@ export default function CompanyAdminHome() {
           />
           <ActivityRow
             icon="•"
-            title="Ny forespurnad på Trondhjem → Oslo"
+            title="Ny forespørsel på Trondhjem → Oslo"
             time="for 4 timer siden"
           />
           <ActivityRow

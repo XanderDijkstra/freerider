@@ -6,14 +6,17 @@ import { LinkButton } from "@/components/Button";
 import { listingsByCompany } from "@/data/listings";
 import { getVehicleById } from "@/data/vehicles";
 import { formatDateRange } from "@/lib/format";
+import { getSession } from "@/lib/session";
 
 export const metadata: Metadata = {
   title: "Annonser",
   robots: { index: false },
 };
 
-export default function AnnonserPage() {
-  const list = listingsByCompany("c-hertz");
+export default async function AnnonserPage() {
+  const session = await getSession();
+  const companyId = session?.companyId ?? "c-hertz";
+  const list = listingsByCompany(companyId);
   return (
     <div className="space-y-6">
       <header className="flex items-end justify-between flex-wrap gap-3">
@@ -29,7 +32,7 @@ export default function AnnonserPage() {
       </header>
 
       <div className="flex gap-2 text-sm">
-        {["Aktive", "Utkast", "Avventande", "Fullført", "Lukka"].map((tab, idx) => (
+        {["Aktive", "Utkast", "Avventer", "Fullført", "Lukket"].map((tab, idx) => (
           <button
             key={tab}
             type="button"

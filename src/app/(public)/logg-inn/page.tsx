@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
-import { Button } from "@/components/Button";
+import { Button, LinkButton } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
@@ -20,6 +20,16 @@ export default function LoggInnPage() {
       <div className="text-center">
         <Logo />
       </div>
+      <Card className="mt-6 p-5 bg-[color:var(--accent)]/30 border-[color:var(--accent)]">
+        <p className="text-sm font-medium">Demo-modus</p>
+        <p className="mt-1 text-xs text-[color:var(--muted)]">
+          Plattformen kjører i demo-modus uten ekte autentisering. Bruk demo-innloggingen
+          for å se de tre rollene.
+        </p>
+        <LinkButton href="/demo-login" variant="primary" size="sm" className="mt-3">
+          Gå til demo-innlogging
+        </LinkButton>
+      </Card>
       <Card className="mt-6 p-6 md:p-8">
         <h1 className="font-heading text-2xl font-semibold text-center">
           Logg inn
@@ -40,20 +50,16 @@ export default function LoggInnPage() {
               autoComplete="email"
               className={inputClass}
               placeholder="ola@nordmann.no"
+              disabled
             />
           </div>
-          <Button className="w-full" size="lg" type="submit">
+          <Button className="w-full" size="lg" type="submit" disabled>
             Send magisk lenke
           </Button>
+          <p className="text-xs text-center text-[color:var(--muted)]">
+            Aktiveres når Supabase Auth er koblet til.
+          </p>
         </form>
-        <div className="my-6 flex items-center gap-3">
-          <div className="flex-1 h-px bg-[color:var(--border)]" />
-          <span className="text-xs text-[color:var(--muted)]">eller</span>
-          <div className="flex-1 h-px bg-[color:var(--border)]" />
-        </div>
-        <Button variant="secondary" className="w-full" type="button">
-          Fortsett med Google
-        </Button>
         <p className="mt-6 text-center text-sm text-[color:var(--muted)]">
           Ingen konto?{" "}
           <Link

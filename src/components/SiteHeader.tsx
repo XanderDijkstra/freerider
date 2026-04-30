@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Container } from "./Container";
-import { LinkButton } from "./Button";
+import { LinkButton, Button } from "./Button";
 import { Logo } from "./Logo";
 import { messages } from "@/lib/messages";
+import { getSession } from "@/lib/session";
+import { logout } from "@/lib/auth-actions";
 
 const NAV = [
   { href: "/biler", label: messages.nav.browse },
@@ -13,7 +15,9 @@ const NAV = [
   { href: "/blogg", label: messages.nav.blog },
 ];
 
-export function SiteHeader() {
+export async function SiteHeader() {
+  const session = await getSession();
+
   return (
     <header className="sticky top-0 z-40 bg-[color:var(--background)]/85 backdrop-blur border-b border-[color:var(--border)]">
       <Container className="flex h-16 items-center justify-between">
@@ -32,12 +36,49 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <LinkButton href="/logg-inn" variant="ghost" size="sm" className="hidden sm:inline-flex">
-            {messages.nav.login}
-          </LinkButton>
-          <LinkButton href="/registrer" variant="primary" size="sm">
-            {messages.nav.register}
-          </LinkButton>
+          {session ? (
+            <>
+              <LinkButton
+                href={
+                  session.role === "admin"
+                    ? "/admin"
+                    : session.role === "company"
+                      ? "/utleier-admin"
+                      : "/dashboard"
+                }
+                variant="secondary"
+                size="sm"
+              >
+                {session.role === "admin"
+                  ? "Admin"
+                  : session.role === "company"
+                    ? "Utleier-admin"
+                    : "Sjåførpanel"}
+              </LinkButton>
+              <span className="hidden sm:inline text-xs text-[color:var(--muted)]">
+                {session.name}
+              </span>
+              <form action={logout}>
+                <Button variant="ghost" size="sm" type="submit">
+                  Logg ut
+                </Button>
+              </form>
+            </>
+          ) : (
+            <>
+              <LinkButton
+                href="/demo-login"
+                variant="ghost"
+                size="sm"
+                className="hidden sm:inline-flex"
+              >
+                {messages.nav.login}
+              </LinkButton>
+              <LinkButton href="/demo-login" variant="primary" size="sm">
+                {messages.nav.register}
+              </LinkButton>
+            </>
+          )}
         </div>
       </Container>
     </header>

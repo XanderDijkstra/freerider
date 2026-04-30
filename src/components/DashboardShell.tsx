@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
+import { Button } from "./Button";
+import { logout } from "@/lib/auth-actions";
 
 export interface NavItem {
   href: string;
@@ -21,15 +23,22 @@ export function DashboardShell({
   return (
     <div className="min-h-screen flex flex-col bg-[color:var(--background)]">
       <header className="border-b border-[color:var(--border)] bg-[color:var(--surface)]">
-        <Container className="flex h-16 items-center justify-between">
+        <Container className="flex h-16 items-center justify-between gap-4">
           <Link href="/" className="flex items-center" aria-label="Til offentlig side">
             <Logo />
           </Link>
-          <div className="text-sm text-[color:var(--muted)] hidden sm:block">
+          <div className="text-sm text-[color:var(--muted)] hidden md:block">
             {title}
           </div>
-          <div className="text-sm text-[color:var(--muted)]">
-            {user.name} · <span className="text-xs">{user.role}</span>
+          <div className="flex items-center gap-3">
+            <div className="text-sm text-[color:var(--muted)] hidden sm:block">
+              {user.name} · <span className="text-xs">{user.role}</span>
+            </div>
+            <form action={logout}>
+              <Button variant="ghost" size="sm" type="submit">
+                Logg ut
+              </Button>
+            </form>
           </div>
         </Container>
       </header>

@@ -21,30 +21,30 @@ import { formatKg, formatDate } from "@/lib/format";
 export const metadata: Metadata = {
   title: "FreeRider.no — Kjør gratis. Flytt bilen. Spar CO₂.",
   description:
-    "Norges marknad for gratis bilflytting. Hertz, Avis, Sixt og fleire treng biler flytta — du får gratis biltur. Lavare kostnader for utleier, lavare CO₂ for alle.",
+    "Norges marked for gratis bilflytting. Hertz, Avis, Sixt og flere trenger biler flyttet — du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
   alternates: { canonical: "/" },
 };
 
 const FAQ = [
   {
-    q: "Kva er FreeRider.no?",
-    a: "FreeRider.no er ein marknad der bilutleiere publiserer leigebilar som må flyttast mellom stasjonar, og private sjåførar tek på seg å køyre bilen. Sjåføren får gratis (eller billeg) biltur, utleigaren sparar lønn og fly, og CO₂ går ned.",
+    q: "Hva er FreeRider.no?",
+    a: "FreeRider.no er et marked der bilutleiere publiserer leiebiler som må flyttes mellom stasjoner, og private sjåfører tar på seg å kjøre bilen. Sjåføren får gratis (eller billig) biltur, utleieren sparer lønn og fly, og CO₂ går ned.",
   },
   {
-    q: "Kor mykje kostar det meg som sjåfør?",
-    a: "Ingenting i utgangspunktet. Mange oppdrag er heilt gratis. Andre dekkjer drivstoff, bom og ferje. Nokre gir til og med eit flatt honorar.",
+    q: "Hvor mye koster det meg som sjåfør?",
+    a: "Ingenting i utgangspunktet. Mange oppdrag er helt gratis. Andre dekker drivstoff, bom og ferje. Noen gir til og med et flatt honorar.",
   },
   {
-    q: "Kva med forsikring?",
-    a: "Bilen er fullforsikra av utleigaren under heile relokeringa, så lenge du følgjer reglane i annonsen (alder, gyldig sertifikat, ingen alkohol).",
+    q: "Hva med forsikring?",
+    a: "Bilen er fullforsikret av utleieren under hele relokeringen, så lenge du følger reglene i annonsen (alder, gyldig sertifikat, ingen alkohol).",
   },
   {
-    q: "Kva om eg ikkje rekk fristen?",
-    a: "Sei frå så snart som mogleg. Mindre forseinkingar er greie, men utleigaren kan krevje kompensasjon for store overskridingar. I verste fall blir du sperra frå plattforma.",
+    q: "Hva om jeg ikke rekk fristen?",
+    a: "Si fra så snart som mulig. Mindre forsinkelser er greie, men utleieren kan kreve kompensasjon for store overskridelser. I verste fall blir du sperret fra plattformen.",
   },
   {
-    q: "Korleis veit eg at det er trygt?",
-    a: "Alle utleigarar på FreeRider.no er manuelt verifiserte. Du leiger frå seriøse aktørar med fysiske stasjonar og full forsikring. Vi tek aldri privatpersonar som tilbydarar.",
+    q: "Hvordan vet jeg at det er trygt?",
+    a: "Alle utleiere på FreeRider.no er manuelt verifisert. Du leier fra seriøse aktører med fysiske stasjoner og full forsikring. Vi tar aldri privatpersoner som tilbydere.",
   },
 ];
 
@@ -67,15 +67,15 @@ export default function HomePage() {
       <Container className="py-12 md:py-16">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <SectionHeading
-            eyebrow="Marknad"
-            title="Nyaste freerider-bilar"
-            description="Plukk ein bil og søk i dag. Nye annonser kvar dag."
+            eyebrow="Marked"
+            title="Nyeste freerider-biler"
+            description="Plukk en bil og søk i dag. Nye annonser hver dag."
           />
           <Link
             href="/biler"
             className="inline-flex items-center gap-1 text-sm font-medium text-[color:var(--primary)] hover:underline"
           >
-            Sjå alle <ArrowRight className="h-4 w-4" aria-hidden />
+            Se alle <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
         <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -95,8 +95,8 @@ export default function HomePage() {
               {formatKg(totalSavedKg)} CO₂ spart så langt
             </h2>
             <p className="mt-3 text-base md:text-lg text-white/85 max-w-xl">
-              Kvar relokering med FreeRider erstattar ein tom retur eller eit
-              returfly. Vi reknar utsleppet ope og publiserer metoden vår.
+              Hver relokering med FreeRider erstatter en tom retur eller et
+              returfly. Vi regner utslippet åpent og publiserer metoden vår.
             </p>
             <div className="mt-5 flex gap-3">
               <LinkButton
@@ -104,7 +104,7 @@ export default function HomePage() {
                 variant="secondary"
                 className="bg-white text-[color:var(--primary)] hover:bg-[color:var(--accent)]"
               >
-                Sjå metoden
+                Se metoden
               </LinkButton>
             </div>
           </div>
@@ -121,8 +121,8 @@ export default function HomePage() {
       <Container className="py-12 md:py-16">
         <SectionHeading
           eyebrow="Utleiere"
-          title="Heile bransjen på éin stad"
-          description="Hertz, Avis, Sixt, Budget og uavhengige aktørar. Vi samlar tilbodet."
+          title="Hele bransjen på ett sted"
+          description="Hertz, Avis, Sixt, Budget og uavhengige aktører. Vi samler tilbudet."
         />
         <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {companies.slice(0, 6).map((c) => (
@@ -131,7 +131,7 @@ export default function HomePage() {
         </div>
         <div className="mt-6">
           <LinkButton href="/utleiere" variant="secondary">
-            Sjå alle utleiere
+            Se alle utleiere
           </LinkButton>
         </div>
       </Container>
@@ -148,13 +148,13 @@ export default function HomePage() {
               Spar opptil 70 % på bilflytting.
             </h2>
             <p className="mt-3 text-[color:var(--muted)] max-w-xl">
-              Erstatt staff-relokeringar med freerider-sjåførar. Lågare lønnskostnad,
-              ingen returfly, raskare omløp.
+              Erstatt staff-relokeringer med freerider-sjåfører. Lavere lønnskostnad,
+              ingen returfly, raskere omløp.
             </p>
           </div>
           <div className="flex md:justify-end gap-3">
             <LinkButton href="/for-utleiere" variant="primary">
-              Bli utleiar-partner
+              Bli utleier-partner
             </LinkButton>
           </div>
         </Card>
@@ -164,14 +164,14 @@ export default function HomePage() {
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <SectionHeading
             eyebrow="Blogg"
-            title="Lese om bilflytting"
-            description="Guidar, ruter og bransje-innsikt."
+            title="Les om bilflytting"
+            description="Guider, ruter og bransje-innsikt."
           />
           <Link
             href="/blogg"
             className="inline-flex items-center gap-1 text-sm font-medium text-[color:var(--primary)] hover:underline"
           >
-            Sjå alle <ArrowRight className="h-4 w-4" aria-hidden />
+            Se alle <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
         <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-3">
@@ -194,7 +194,7 @@ export default function HomePage() {
       </Container>
 
       <Container className="py-12 md:py-16">
-        <SectionHeading title="Vanlege spørsmål" />
+        <SectionHeading title="Vanlige spørsmål" />
         <div className="mt-6 max-w-3xl">
           <FAQAccordion items={FAQ} />
         </div>
@@ -227,13 +227,13 @@ function Hero() {
             Spar planeten.
           </h1>
           <p className="mt-5 text-base md:text-lg text-[color:var(--muted)] max-w-xl">
-            FreeRider.no koblar bilutleiere som treng biler flytta med sjåfører
-            som vil reise gratis. Lågare kostnader for utleigar, gratis biltur
+            FreeRider.no kobler bilutleiere som trenger biler flyttet med sjåfører
+            som vil reise gratis. Lavere kostnader for utleier, gratis biltur
             for deg, mindre CO₂ for alle.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <LinkButton href="/biler" size="lg">
-              Sjå ledige biler
+              Se ledige biler
             </LinkButton>
             <LinkButton href="/for-utleiere" size="lg" variant="secondary">
               For utleiere
@@ -242,7 +242,7 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-[color:var(--muted)]">
             <span className="inline-flex items-center gap-2">
               <Users className="h-4 w-4 text-[color:var(--primary)]" aria-hidden />
-              4 200 sjåførar
+              4 200 sjåfører
             </span>
             <span className="inline-flex items-center gap-2">
               <Truck className="h-4 w-4 text-[color:var(--primary)]" aria-hidden />
@@ -250,7 +250,7 @@ function Hero() {
             </span>
             <span className="inline-flex items-center gap-2">
               <MapPin className="h-4 w-4 text-[color:var(--primary)]" aria-hidden />
-              42 stasjonar
+              42 stasjoner
             </span>
           </div>
         </div>
@@ -305,23 +305,23 @@ function HeroVisual() {
 function HowItWorks() {
   const steps = [
     {
-      title: "Utleigar publiserer",
-      body: "Bilutleiaren legg ut ein bil som må flyttast mellom to stasjonar — med dato, distanse og reglar.",
+      title: "Utleier publiserer",
+      body: "Bilutleieren legger ut en bil som må flyttes mellom to stasjoner — med dato, distanse og regler.",
     },
     {
       title: "Du søker",
-      body: "Filtrer på rute, dato og biltype. Søk om bilen som passar deg. Tek kort tid.",
+      body: "Filtrer på rute, dato og biltype. Søk om bilen som passer deg. Tar kort tid.",
     },
     {
       title: "Du kjører",
-      body: "Hent bilen, kjør strekninga og lever den i tide. Gratis tur for deg, lågare CO₂ for alle.",
+      body: "Hent bilen, kjør strekningen og lever den i tide. Gratis tur for deg, lavere CO₂ for alle.",
     },
   ];
   return (
     <Container className="py-12 md:py-16">
       <SectionHeading
         eyebrow="Slik fungerer det"
-        title="Tre steg frå annonse til biltur."
+        title="Tre steg fra annonse til biltur."
       />
       <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-3">
         {steps.map((step, idx) => (
@@ -341,14 +341,14 @@ function HowItWorks() {
 function PopularRoutes() {
   const routes = [
     { from: "Oslo", to: "Bergen", km: 480 },
-    { from: "Oslo", to: "Trondheim", km: 495 },
+    { from: "Oslo", to: "Trondhjem", km: 495 },
     { from: "Tromsø", to: "Bodø", km: 720 },
   ];
   return (
     <Container className="py-12 md:py-16">
       <SectionHeading
         eyebrow="Populære ruter"
-        title="Finn ein bil på ruta du vil reise."
+        title="Finn bil på ruten du vil reise."
       />
       <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-3">
         {routes.map((r) => (
@@ -364,10 +364,10 @@ function PopularRoutes() {
                 {r.to}
               </div>
               <p className="mt-2 text-sm text-[color:var(--muted)]">
-                {r.km} km · vanleg sommarrute
+                {r.km} km · vanlig sommerrute
               </p>
               <p className="mt-4 inline-flex items-center gap-1 text-sm text-[color:var(--primary)] font-medium">
-                Sjå ledige biler <ArrowRight className="h-4 w-4" aria-hidden />
+                Se ledige biler <ArrowRight className="h-4 w-4" aria-hidden />
               </p>
             </Card>
           </Link>
@@ -381,25 +381,25 @@ function Testimonials() {
   const items = [
     {
       quote:
-        "Eg sparte 1 600 kr på flybillett til Bergen og fekk køyre ein splitter ny ID.4. Tek meg igjen om sjansen kjem.",
+        "Jeg sparte 1 600 kr på flybillett til Bergen og fikk kjøre en splitter ny ID.4. Tar meg igjen om sjansen kommer.",
       name: "Ida, 27, Oslo",
     },
     {
       quote:
-        "Funka perfekt frå første tur. Drivstoffkortet var inkludert, og levering gjekk på 5 minutt.",
-      name: "Henrik, 33, Trondheim",
+        "Funket perfekt fra første tur. Drivstoffkortet var inkludert, og levering gikk på 5 minutter.",
+      name: "Henrik, 33, Trondhjem",
     },
     {
       quote:
-        "Endeleg ein måte å reise nord på som faktisk er billeg og grøn samstundes.",
+        "Endelig en måte å reise nord på som faktisk er billig og grønn samtidig.",
       name: "Marit, 41, Tromsø",
     },
   ];
   return (
     <Container className="py-12 md:py-16">
       <SectionHeading
-        eyebrow="Sjåførar"
-        title="Slik er det å vere freerider."
+        eyebrow="Sjåfører"
+        title="Slik er det å være freerider."
       />
       <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-3">
         {items.map((t, idx) => (

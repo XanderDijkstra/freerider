@@ -14,16 +14,16 @@ export default function NotFound() {
             404
           </p>
           <h1 className="mt-2 font-heading text-4xl md:text-5xl font-semibold">
-            Sida finst ikkje
+            Siden finnes ikke
           </h1>
           <p className="mt-4 text-[color:var(--muted)]">
-            Lenka er broten, eller annonsen er fjerna. Prøv frå framsida eller
-            sjå alle ledige biler.
+            Lenken er brutt, eller annonsen er fjernet. Prøv fra forsiden eller
+            se alle ledige biler.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <LinkButton href="/">Til framsida</LinkButton>
+            <LinkButton href="/">Til forsiden</LinkButton>
             <LinkButton href="/biler" variant="secondary">
-              Sjå ledige biler
+              Se ledige biler
             </LinkButton>
           </div>
           <p className="mt-8 text-xs text-[color:var(--muted)]">
@@ -31,7 +31,7 @@ export default function NotFound() {
             <Link href="/kontakt" className="underline">
               kontakt
             </Link>{" "}
-            om noko er galt.
+            om noe er galt.
           </p>
         </Container>
       </main>

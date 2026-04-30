@@ -16,45 +16,45 @@ import {
 export const metadata: Metadata = {
   title: "Bilflytting for utleiere — spar opptil 70 %",
   description:
-    "Reduser kostnaden ved relokering. Publiser ledige biler på FreeRider.no og få sjåfører som flyttar bilen for deg. Lågare kostnad, lågare CO₂.",
+    "Reduser kostnaden ved relokering. Publiser ledige biler på FreeRider.no og få sjåfører som flytter bilen for deg. Lavere kostnad, lavere CO₂.",
   alternates: { canonical: "/for-utleiere" },
 };
 
 const FAQ = [
   {
-    q: "Kor mykje kostar plattforma?",
-    a: "Starter er gratis i MVP-fasen. Pro og Enterprise blir tilgjengeleg seinare i 2026 med fleire funksjonar (bulk-import, API, prioriterte annonsar).",
+    q: "Hvor mye koster plattformen?",
+    a: "Starter er gratis i MVP-fasen. Pro og Enterprise blir tilgjengelig senere i 2026 med flere funksjoner (bulk-import, API, prioriterte annonser).",
   },
   {
-    q: "Korleis blir vår konto godkjent?",
-    a: "Vi sjekkar org.nummeret i Brønnøysundregisteret og bekreftar via fysisk adresse. Tek 1–2 yrkesdagar.",
+    q: "Hvordan blir vår konto godkjent?",
+    a: "Vi sjekker org.nummeret i Brønnøysundregisteret og bekrefter via fysisk adresse. Tar 1–2 yrkesdager.",
   },
   {
-    q: "Kva om sjåføren ikkje møter opp?",
-    a: "Annonsen blir reaktivert automatisk. Vi blokkerer sjåførar som hyppig ikkje møter opp.",
+    q: "Hva om sjåføren ikke møter opp?",
+    a: "Annonsen blir reaktivert automatisk. Vi blokkerer sjåfører som hyppig ikke møter opp.",
   },
   {
-    q: "Korleis fungerer forsikring?",
-    a: "Bilen er forsikra av dykk på vanleg vis. Vi krev at sjåføren har gyldig sertifikat og at han/ho oppfyller annonsens alderskrav.",
+    q: "Hvordan fungerer forsikring?",
+    a: "Bilen er forsikret av dere på vanlig vis. Vi krever at sjåføren har gyldig sertifikat og at han/hun oppfyller annonsens alderskrav.",
   },
   {
-    q: "Kan vi koble eksisterande system mot FreeRider?",
-    a: "API kjem i Phase 2. I dag legg de inn flåten manuelt eller via CSV-import (kjem i Q3 2026).",
+    q: "Kan vi koble eksisterende system mot FreeRider?",
+    a: "API kommer i Phase 2. I dag legger dere inn flåten manuelt eller via CSV-import (kommer i Q3 2026).",
   },
 ];
 
 const PROBLEMS = [
   {
     title: "Lønn og fly",
-    body: "Ein staff-relokering Oslo–Bergen kostar 2 400 kr i lønn pluss ~1 500 kr i returflybillett. På 1 000 oppdrag i året er det 3,9 mill kr.",
+    body: "En staff-relokering Oslo–Bergen koster 2 400 kr i lønn pluss ~1 500 kr i returflybillett. På 1 000 oppdrag i året er det 3,9 mill kr.",
   },
   {
-    title: "Mistar dagar i flåten",
-    body: "Bilen som blir relokert står ofte stille i påvente av at staff kjem fram, og staff er låst i nokre timar undervegs. Det stel utleigedagar.",
+    title: "Mister dager i flåten",
+    body: "Bilen som blir relokert står ofte stille i påvente av at staff kommer fram, og staff er låst i noen timer underveis. Det stjeler utleiedager.",
   },
   {
     title: "CO₂ og rapportering",
-    body: "Større kundar krev no Scope 3-rapportering på leverandørane. Ein staff-relokering med returfly genererer ca. 200 kg CO₂ per oppdrag.",
+    body: "Større kunder krever nå Scope 3-rapportering på leverandørene. En staff-relokering med returfly genererer ca. 200 kg CO₂ per oppdrag.",
   },
 ];
 
@@ -64,32 +64,32 @@ const PRICING = [
     price: "Gratis",
     detail: "i MVP-fasen",
     features: [
-      "Inntil 10 aktive annonsar",
+      "Inntil 10 aktive annonser",
       "Manuelle annonseopprettelser",
-      "E-post-varsling til sjåførar",
+      "E-post-varsling til sjåfører",
     ],
     cta: "Start gratis",
   },
   {
     name: "Pro",
     price: "Snart",
-    detail: "kjem 2026",
+    detail: "kommer 2026",
     features: [
-      "Ubegrenset annonsar",
+      "Ubegrenset annonser",
       "CSV-import av flåte",
-      "SMS-varsling til sjåførar",
-      "Prioritert plassering i marknad",
+      "SMS-varsling til sjåfører",
+      "Prioritert plassering i marked",
     ],
     cta: "Få beskjed",
   },
   {
     name: "Enterprise",
     price: "Snart",
-    detail: "kjem 2026",
+    detail: "kommer 2026",
     features: [
       "API-integrasjon mot fleet management",
       "SLA og dedikert kontaktperson",
-      "White-label varslar",
+      "White-label varsler",
       "CO₂-rapportering for Scope 3",
     ],
     cta: "Bestill demo",
@@ -101,21 +101,21 @@ export default function ForUtleierePage() {
     <Container className="py-6 md:py-10">
       <Breadcrumbs items={[{ label: "For utleiere" }]} />
       <header className="mt-3 max-w-3xl">
-        <Badge tone="eco">For bilutleiarar</Badge>
+        <Badge tone="eco">For bilutleiere</Badge>
         <h1 className="mt-3 font-heading text-3xl md:text-5xl font-semibold">
           Spar opptil 70 % på bilflytting.
         </h1>
         <p className="mt-4 text-base md:text-lg text-[color:var(--muted)]">
-          Erstatt staff-relokeringar med freerider-sjåførar. Lågare kostnad,
-          ingen returflybillett, raskare omløp i flåten — og full kontroll over
-          kven som tek bilen.
+          Erstatt staff-relokeringer med freerider-sjåfører. Lavere kostnad,
+          ingen returflybillett, raskere omløp i flåten — og full kontroll over
+          hvem som tar bilen.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <LinkButton href="/kontakt" size="lg">
             Bestill demo
           </LinkButton>
           <LinkButton href="/registrer?role=company" size="lg" variant="secondary">
-            Lag konto sjølv
+            Lag konto selv
           </LinkButton>
         </div>
       </header>
@@ -134,18 +134,18 @@ export default function ForUtleierePage() {
 
       <section className="mt-14 grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 className="font-heading text-2xl font-semibold">Slik løyser vi det</h2>
+          <h2 className="font-heading text-2xl font-semibold">Slik løser vi det</h2>
           <p className="mt-3 text-[color:var(--muted)]">
-            FreeRider er ein open marknad. Du legg ut bilen, definerer reglane,
-            og vel ein sjåfør frå dei som søkjer. Ingen lønn, ingen flybillett,
-            ingen returkøyring.
+            FreeRider er et åpent marked. Du legger ut bilen, definerer reglene,
+            og velger en sjåfør fra dem som søker. Ingen lønn, ingen flybillett,
+            ingen returkjøring.
           </p>
           <ul className="mt-5 space-y-3">
             {[
               "Plug-and-play — ingen integrasjon nødvendig for å starte.",
-              "Du behaldar full kontroll: vel sjåfør, vel reglar, vel kompensasjon.",
-              "Innebygd CO₂-rapport per oppdrag for Scope 3-rapporteringa.",
-              "Forsikring og ansvar går som ein vanleg leige.",
+              "Du beholder full kontroll: velg sjåfør, velg regler, velg kompensasjon.",
+              "Innebygd CO₂-rapport per oppdrag for Scope 3-rapporteringen.",
+              "Forsikring og ansvar går som en vanlig leie.",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-sm">
                 <CheckCircle2 className="h-5 w-5 text-[color:var(--success)] mt-0.5 shrink-0" aria-hidden />
@@ -160,8 +160,8 @@ export default function ForUtleierePage() {
       <section className="mt-14">
         <h2 className="font-heading text-2xl font-semibold">Pris</h2>
         <p className="mt-2 text-[color:var(--muted)] max-w-2xl">
-          MVP-perioden er gratis. Vi kjem til å introdusere betalte tier seinare i
-          2026 for funksjonar utover det grunnleggjande.
+          MVP-perioden er gratis. Vi kommer til å introdusere betalte tier senere i
+          2026 for funksjoner utover det grunnleggende.
         </p>
         <div className="mt-6 grid md:grid-cols-3 gap-4">
           {PRICING.map((p, idx) => (
@@ -192,7 +192,7 @@ export default function ForUtleierePage() {
       </section>
 
       <section className="mt-14 max-w-3xl">
-        <h2 className="font-heading text-2xl font-semibold">Vanlege spørsmål</h2>
+        <h2 className="font-heading text-2xl font-semibold">Vanlige spørsmål</h2>
         <div className="mt-6">
           <FAQAccordion items={FAQ} />
         </div>
@@ -202,11 +202,11 @@ export default function ForUtleierePage() {
         <Card className="p-8 md:p-10 grid md:grid-cols-3 gap-6 items-center">
           <div className="md:col-span-2">
             <h2 className="font-heading text-2xl md:text-3xl font-semibold">
-              30 minuttars demo. Null forplikting.
+              30 minutters demo. Null forpliktelse.
             </h2>
             <p className="mt-2 text-[color:var(--muted)]">
               Vi viser deg admin-panelet, går gjennom CO₂-modellen, og viser
-              kostnadsmodellering for di flåte.
+              kostnadsmodellering for din flåte.
             </p>
           </div>
           <div className="flex md:justify-end gap-3">
@@ -218,7 +218,7 @@ export default function ForUtleierePage() {
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "For utleiere", url: "/for-utleiere" },
           ]),
           faqSchema(FAQ),
@@ -246,14 +246,14 @@ function ROICalculator() {
         <Row label="Staff-kostnad i dag" value="3 900 kr / oppdrag" />
         <Row label="Med FreeRider" value="1 200 kr / oppdrag" />
         <Row
-          label="Estimert månadleg sparing"
+          label="Estimert månedlig sparing"
           value="270 000 kr"
           highlight
         />
         <Row label="CO₂-reduksjon per år" value="216 tonn" />
       </dl>
       <p className="mt-3 text-xs text-[color:var(--muted)]">
-        Eksempelet er illustrerande. Ein detaljert ROI-modell går vi gjennom i
+        Eksempelet er illustrerende. En detaljert ROI-modell går vi gjennom i
         demoen basert på din flåte.
       </p>
     </Card>

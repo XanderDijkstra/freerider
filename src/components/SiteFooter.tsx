@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 
 const FOOTER_LINKS = [
   {
-    title: "Marknad",
+    title: "Marked",
     items: [
       { href: "/biler", label: "Ledige biler" },
       { href: "/utleiere", label: "Utleiere" },
@@ -13,7 +13,7 @@ const FOOTER_LINKS = [
     ],
   },
   {
-    title: "Lær meir",
+    title: "Lær mer",
     items: [
       { href: "/hvordan-fungerer-det", label: "Slik fungerer det" },
       { href: "/miljo", label: "Klimaeffekt" },
@@ -47,11 +47,11 @@ export function SiteFooter() {
           <div className="md:col-span-2 space-y-3">
             <Logo />
             <p className="text-sm text-[color:var(--muted)] max-w-sm">
-              FreeRider.no koblar bilutleiere som treng biler flytta med
-              sjåfører som vil reise gratis. Lågare kostnad, lågare CO₂.
+              FreeRider.no kobler bilutleiere som trenger biler flyttet med
+              sjåfører som vil reise gratis. Lavere kostnad, lavere CO₂.
             </p>
             <p className="text-xs text-[color:var(--muted)]">
-              FreeRider AS · Org.nr. 000 000 000 · Oslo, Noreg
+              FreeRider AS · Org.nr. 000 000 000 · Oslo, Norge
             </p>
           </div>
           {FOOTER_LINKS.map((group) => (
@@ -75,8 +75,8 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="mt-10 pt-6 border-t border-[color:var(--border)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[color:var(--muted)]">
-          <p>© {new Date().getFullYear()} FreeRider AS. Alle rettar.</p>
-          <p>Laga i Noreg.</p>
+          <p>© {new Date().getFullYear()} FreeRider AS. Alle rettigheter.</p>
+          <p>Laget i Norge.</p>
         </div>
       </Container>
     </footer>

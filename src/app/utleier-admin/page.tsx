@@ -7,7 +7,7 @@ import { totalCo2SavedKg } from "@/lib/co2";
 import { formatKg } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Utleigar-admin",
+  title: "Utleier-admin",
   robots: { index: false },
 };
 
@@ -27,7 +27,7 @@ export default function CompanyAdminHome() {
             Oversikt
           </h1>
           <p className="mt-1 text-[color:var(--muted)]">
-            Status på flåten og dei aktive annonsane dine.
+            Status på flåten og de aktive annonsene dine.
           </p>
         </div>
         <div className="flex gap-2">
@@ -41,8 +41,8 @@ export default function CompanyAdminHome() {
       </header>
 
       <div className="grid md:grid-cols-4 gap-4">
-        <Stat label="Aktive annonsar" value={String(list.length)} />
-        <Stat label="Avventande forespørslar" value="6" />
+        <Stat label="Aktive annonser" value={String(list.length)} />
+        <Stat label="Avventande forespørsler" value="6" />
         <Stat label="Fullført denne mnd" value="14" />
         <Stat
           label="CO₂ spart denne mnd"
@@ -56,13 +56,13 @@ export default function CompanyAdminHome() {
         <Card className="mt-4 divide-y divide-[color:var(--border)]">
           <ActivityRow
             icon="✓"
-            title="Ida Karlsen vart godkjent på Oslo → Bergen"
-            time="for 2 timar sidan"
+            title="Ida Karlsen ble godkjent på Oslo → Bergen"
+            time="for 2 timer siden"
           />
           <ActivityRow
             icon="•"
-            title="Ny forespurnad på Trondheim → Oslo"
-            time="for 4 timar sidan"
+            title="Ny forespurnad på Trondhjem → Oslo"
+            time="for 4 timer siden"
           />
           <ActivityRow
             icon="✓"

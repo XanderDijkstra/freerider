@@ -8,7 +8,7 @@ import { Logo } from "@/components/Logo";
 export const metadata: Metadata = {
   title: "Registrer deg",
   description:
-    "Registrer ein konto på FreeRider.no — som sjåfør eller bilutleigar.",
+    "Registrer en konto på FreeRider.no — som sjåfør eller bilutleier.",
   alternates: { canonical: "/registrer" },
 };
 
@@ -33,8 +33,8 @@ export default async function RegistrerPage({
         </h1>
         <p className="mt-2 text-sm text-[color:var(--muted)] text-center">
           {isCompany
-            ? "Utleigar-konto. Vi godkjenner manuelt før første publisering."
-            : "Sjåfør-konto. Aktivert med éin gong via e-post."}
+            ? "Utleier-konto. Vi godkjenner manuelt før første publisering."
+            : "Sjåfør-konto. Aktivert med én gang via e-post."}
         </p>
 
         <div className="mt-6 grid grid-cols-2 gap-2 p-1 bg-[color:var(--background)] rounded-lg">
@@ -48,14 +48,14 @@ export default async function RegistrerPage({
             href="/registrer?role=company"
             className={`text-center text-sm py-2 rounded-md ${isCompany ? "bg-[color:var(--primary)] text-white" : "text-[color:var(--muted)]"}`}
           >
-            Utleigar
+            Utleier
           </Link>
         </div>
 
         <form className="mt-6 space-y-4">
           {isCompany ? (
             <>
-              <Field label="Firmanamn" htmlFor="company">
+              <Field label="Firmanavn" htmlFor="company">
                 <input id="company" name="company" required className={inputClass} />
               </Field>
               <Field label="Org.nummer" htmlFor="org">
@@ -64,10 +64,10 @@ export default async function RegistrerPage({
             </>
           ) : (
             <>
-              <Field label="Fullt namn" htmlFor="name">
+              <Field label="Fullt navn" htmlFor="name">
                 <input id="name" name="name" required className={inputClass} />
               </Field>
-              <Field label="Førarkortnummer" htmlFor="license">
+              <Field label="Førerkortnummer" htmlFor="license">
                 <input id="license" name="license" required className={inputClass} />
               </Field>
             </>
@@ -93,9 +93,9 @@ export default async function RegistrerPage({
           <label className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
             <input type="checkbox" required className="mt-1" />
             <span>
-              Eg godtek{" "}
+              Jeg godtar{" "}
               <Link href="/vilkar" className="text-[color:var(--primary)] underline">
-                vilkåra
+                vilkårene
               </Link>{" "}
               og{" "}
               <Link href="/personvern" className="text-[color:var(--primary)] underline">
@@ -109,7 +109,7 @@ export default async function RegistrerPage({
           </Button>
         </form>
         <p className="mt-6 text-center text-sm text-[color:var(--muted)]">
-          Allereie konto?{" "}
+          Allerede konto?{" "}
           <Link href="/logg-inn" className="text-[color:var(--primary)] underline">
             Logg inn
           </Link>

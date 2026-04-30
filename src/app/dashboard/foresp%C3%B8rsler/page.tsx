@@ -6,7 +6,7 @@ import { getVehicleById } from "@/data/vehicles";
 import { formatDateRange } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Mine forespørslar",
+  title: "Mine forespørsler",
   robots: { index: false },
 };
 
@@ -33,10 +33,10 @@ export default function MineForesporselrPage() {
     <div className="space-y-6">
       <header>
         <h1 className="font-heading text-2xl md:text-3xl font-semibold">
-          Mine forespørslar
+          Mine forespørsler
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          Status på dei oppdraga du har søkt på.
+          Status på de oppdragene du har søkt på.
         </p>
       </header>
       <div className="space-y-3">

@@ -12,7 +12,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
       <ol className="flex flex-wrap items-center gap-1.5">
         <li>
           <Link href="/" className="hover:text-[color:var(--primary)]">
-            Heim
+            Hjem
           </Link>
         </li>
         {items.map((item, idx) => (

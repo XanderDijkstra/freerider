@@ -25,7 +25,7 @@ export default function LoggInnPage() {
           Logg inn
         </h1>
         <p className="mt-2 text-sm text-[color:var(--muted)] text-center">
-          Vi sender deg ein magisk lenke på e-post.
+          Vi sender deg en magisk lenke på e-post.
         </p>
         <form className="mt-6 space-y-4">
           <div>

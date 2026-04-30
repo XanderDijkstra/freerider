@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 const PREFS = [
   {
     key: "newListings",
-    title: "Nye annonsar frå utleigarar eg følgjer",
-    desc: "Få varsel når Hertz, Avis eller andre du følgjer publiserer eit oppdrag.",
+    title: "Nye annonser fra utleiere jeg følger",
+    desc: "Få varsel når Hertz, Avis eller andre du følger publiserer et oppdrag.",
   },
   {
     key: "statusChange",
-    title: "Status på forespørslane mine",
+    title: "Status på forespørslene mine",
     desc: "Godkjenning, avslag eller endringar i opphenting.",
   },
   {
@@ -33,7 +33,7 @@ export default function VarslerPage() {
           Varselinnstillingar
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          Vel kva for varsel du vil ha — og på kva kanal.
+          Velg hva for varsel du vil ha — og på hva kanal.
         </p>
       </header>
       <Card className="divide-y divide-[color:var(--border)]">

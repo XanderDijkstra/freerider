@@ -7,7 +7,7 @@ import { Button } from "@/components/Button";
 export const metadata: Metadata = {
   title: "Kontakt FreeRider.no",
   description:
-    "Send oss ein melding. For utleigarar tilbyr vi 30-min demo. Sjåførar får svar innan 24 t.",
+    "Send oss en melding. For utleiere tilbyr vi 30-min demo. Sjåfører får svar innen 24 t.",
   alternates: { canonical: "/kontakt" },
 };
 
@@ -23,15 +23,15 @@ export default function KontaktPage() {
           Kontakt
         </h1>
         <p className="mt-3 text-[color:var(--muted)]">
-          Skriv kva du lurer på, så svarer vi. Sjåførsupport innan 24 t.
-          Utleigar-førespurnader innan éin yrkesdag.
+          Skriv hva du lurer på, så svarer vi. Sjåførsupport innen 24 t.
+          Utleier-forespørsler innen én yrkesdag.
         </p>
       </header>
 
       <div className="mt-8 grid md:grid-cols-[1fr_320px] gap-8">
         <Card className="p-6">
           <form className="space-y-4">
-            <Field label="Namn" htmlFor="name">
+            <Field label="Navn" htmlFor="name">
               <input id="name" name="name" className={inputClass} required />
             </Field>
             <Field label="E-post" htmlFor="email">
@@ -43,12 +43,12 @@ export default function KontaktPage() {
                 required
               />
             </Field>
-            <Field label="Eg er" htmlFor="role">
+            <Field label="Jeg er" htmlFor="role">
               <select id="role" name="role" className={inputClass}>
                 <option value="driver">Sjåfør</option>
-                <option value="company">Utleigar</option>
+                <option value="company">Utleier</option>
                 <option value="press">Presse</option>
-                <option value="other">Anna</option>
+                <option value="other">Annet</option>
               </select>
             </Field>
             <Field label="Melding" htmlFor="message">
@@ -62,7 +62,7 @@ export default function KontaktPage() {
             </Field>
             <Button type="submit">Send melding</Button>
             <p className="text-xs text-[color:var(--muted)]">
-              Skjemaet blir spam-beskytta med hCaptcha før produksjon.
+              Skjemaet blir spam-beskyttet med hCaptcha før produksjon.
             </p>
           </form>
         </Card>

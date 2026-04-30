@@ -10,7 +10,7 @@ import { absoluteUrl, breadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Ordliste — bilflytting og leiebil-termer",
   description:
-    "Forklaringar av sentrale termer i bilflytting: relokering, einveisleie, flåtebalansering og fleire.",
+    "Forklaringer av sentrale termer i bilflytting: relokering, einveisleie, flåtebalansering og flere.",
   alternates: { canonical: "/ordliste" },
 };
 
@@ -52,7 +52,7 @@ export default function OrdlistePage() {
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Ordliste", url: "/ordliste" },
           ]),
           {

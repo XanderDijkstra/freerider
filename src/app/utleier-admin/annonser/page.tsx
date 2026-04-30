@@ -8,7 +8,7 @@ import { getVehicleById } from "@/data/vehicles";
 import { formatDateRange } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Annonsar",
+  title: "Annonser",
   robots: { index: false },
 };
 
@@ -19,10 +19,10 @@ export default function AnnonserPage() {
       <header className="flex items-end justify-between flex-wrap gap-3">
         <div>
           <h1 className="font-heading text-2xl md:text-3xl font-semibold">
-            Annonsar
+            Annonser
           </h1>
           <p className="mt-1 text-[color:var(--muted)]">
-            Aktive, utkast og tidlegare oppdrag.
+            Aktive, utkast og tidligere oppdrag.
           </p>
         </div>
         <LinkButton href="/utleier-admin/annonser/ny">Ny annonse</LinkButton>
@@ -63,7 +63,7 @@ export default function AnnonserPage() {
                   href={`/utleier-admin/annonser/${l.id}/foresp%C3%B8rsler`}
                   className="text-sm text-[color:var(--primary)] hover:underline"
                 >
-                  Sjå forespørslar
+                  Se forespørsler
                 </Link>
               </div>
             </Card>

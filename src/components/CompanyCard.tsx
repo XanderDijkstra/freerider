@@ -19,8 +19,8 @@ export function CompanyCard({ company }: { company: Company }) {
               {company.name}
             </h3>
             <p className="text-xs text-[color:var(--muted)]">
-              {company.fleetSize.toLocaleString("nb-NO")} bilar ·{" "}
-              {company.locations.length} stasjonar
+              {company.fleetSize.toLocaleString("nb-NO")} biler ·{" "}
+              {company.locations.length} stasjoner
             </p>
           </div>
         </div>

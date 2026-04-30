@@ -17,7 +17,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 bg-[color:var(--background)]/85 backdrop-blur border-b border-[color:var(--border)]">
       <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center" aria-label="FreeRider heim">
+        <Link href="/" className="flex items-center" aria-label="FreeRider hjem">
           <Logo />
         </Link>
         <nav className="hidden md:flex items-center gap-1">

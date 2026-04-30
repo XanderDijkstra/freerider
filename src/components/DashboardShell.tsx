@@ -22,7 +22,7 @@ export function DashboardShell({
     <div className="min-h-screen flex flex-col bg-[color:var(--background)]">
       <header className="border-b border-[color:var(--border)] bg-[color:var(--surface)]">
         <Container className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center" aria-label="Til offentleg side">
+          <Link href="/" className="flex items-center" aria-label="Til offentlig side">
             <Logo />
           </Link>
           <div className="text-sm text-[color:var(--muted)] hidden sm:block">

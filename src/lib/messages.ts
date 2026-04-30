@@ -46,14 +46,14 @@ export const messages = {
     closed: "Lukket",
   },
   empty: {
-    noListings: "Ingen biler matchar filteret. Prøv å fjerna eit filter, eller slå på varsel for denne kombinasjonen.",
-    noRequests: "Ingen forespørsler enda.",
-    noFollows: "Du følgjer ingen utleiere enno.",
+    noListings: "Ingen biler matcher filteret. Prøv å fjerne et filter, eller slå på varsel for denne kombinasjonen.",
+    noRequests: "Ingen forespørsler ennå.",
+    noFollows: "Du følger ingen utleiere ennå.",
   },
   errors: {
-    generic: "Noko gjekk gale. Prøv igjen om litt.",
-    auth: "Du må logga inn for å gjera dette.",
-    notFound: "Sida finst ikkje.",
+    generic: "Noe gikk galt. Prøv igjen om litt.",
+    auth: "Du må logge inn for å gjøre dette.",
+    notFound: "Siden finnes ikke.",
   },
 } as const;
 

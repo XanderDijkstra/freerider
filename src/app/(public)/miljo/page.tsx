@@ -17,30 +17,30 @@ import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Klimaeffekt og CO₂-metode",
   description:
-    "Slik reknar vi CO₂-besparing per relokering. Tal, kjelder og samanlikning mot tom retur og fly.",
+    "Slik regner vi CO₂-besparing per relokering. Tall, kilder og sammenligning mot tom retur og fly.",
   alternates: { canonical: "/miljo" },
 };
 
 const FAQ = [
   {
-    q: "Korleis reknar de CO₂?",
-    a: "Distanse × utsleppsfaktor for det aktuelle drivstoffet, samanlikna med utsleppsfaktoren for det baseline-scenarioet du vel (tom retur, staff + fly, transportør).",
+    q: "Hvordan regner dere CO₂?",
+    a: "Distanse × utslippsfaktor for det aktuelle drivstoffet, sammenlignet med utslippsfaktoren for det baseline-scenarioet du velger (tom retur, staff + fly, transportør).",
   },
   {
-    q: "Kva for kjelder bruker de?",
-    a: "Vi tek utgangspunkt i Defra GHG Conversion Factors og IEA-tal for norsk grid mix. Faktorane blir oppdaterte minst éin gong i året.",
+    q: "Hvilke kilder bruker dere?",
+    a: "Vi tar utgangspunkt i Defra GHG Conversion Factors og IEA-tall for norsk grid mix. Faktorene blir oppdatert minst én gang i året.",
   },
   {
-    q: "Kvifor får elbilen ikkje null?",
-    a: "Sjølv ein elbil generer indirekte utslepp via grid mix og produksjon. Vi bruker ein well-to-wheel-faktor for norsk straum.",
+    q: "Hvorfor får elbilen ikke null?",
+    a: "Selv en elbil genererer indirekte utslipp via grid mix og produksjon. Vi bruker en well-to-wheel-faktor for norsk strøm.",
   },
   {
-    q: "Er tala validerte tredjepart?",
-    a: "Nei, ikkje enno. Vi planlegg ein uavhengig revisjon når volumet er stort nok. Inntil då er metoden vår offentleg slik at andre kan etterprøva.",
+    q: "Er tallene validert av tredjepart?",
+    a: "Nei, ikke ennå. Vi planlegger en uavhengig revisjon når volumet er stort nok. Inntil da er metoden vår offentlig slik at andre kan etterprøve.",
   },
   {
-    q: "Vert prioriterer de elbilar?",
-    a: "Ja, elbil-annonsar får ekstra synlegheit i marknaden, og vi anbefaler utleigarar å publisere desse først.",
+    q: "Hvorfor prioriterer dere elbiler?",
+    a: "Elbil-annonser får ekstra synlighet i markedet, og vi anbefaler utleiere å publisere disse først.",
   },
 ];
 
@@ -74,8 +74,8 @@ export default function MiljoPage() {
           Vår klimaeffekt
         </h1>
         <p className="mt-4 text-base md:text-lg text-[color:var(--muted)]">
-          Vi publiserer metoden vår, ikkje berre konklusjonen. Du skal kunne
-          etterprøva kvar einaste tonn CO₂ vi seier vi har spart.
+          Vi publiserer metoden vår, ikke bare konklusjonen. Du skal kunne
+          etterprøve hvert eneste tonn CO₂ vi sier vi har spart.
         </p>
       </header>
 
@@ -88,8 +88,8 @@ export default function MiljoPage() {
             {formatKg(totalSavedKg)}
           </p>
           <p className="mt-3 text-white/85 max-w-xl">
-            Total CO₂ som freerider-modellen har erstatta vs. tom retur. Talet
-            blir oppdatert kvar gong eit oppdrag er fullført.
+            Total CO₂ som freerider-modellen har erstattet vs. tom retur. Tallet
+            blir oppdatert hver gang et oppdrag er fullført.
           </p>
         </Card>
       </section>
@@ -97,7 +97,7 @@ export default function MiljoPage() {
       <section className="mt-12 max-w-3xl">
         <h2 className="font-heading text-2xl font-semibold">Metoden vår</h2>
         <p className="mt-3 text-[color:var(--muted)]">
-          For kvart oppdrag reknar vi:
+          For hvert oppdrag regner vi:
         </p>
         <pre className="mt-3 p-4 rounded-lg bg-[color:var(--surface)] border border-[color:var(--border)] overflow-auto text-sm">
 {`vehicle_kg     = distanse_km * faktor[drivstoff]
@@ -105,14 +105,14 @@ baseline_kg    = distanse_km * faktor[baseline]
 saved_kg       = max(0, baseline_kg - vehicle_kg)`}
         </pre>
         <p className="mt-3 text-[color:var(--muted)]">
-          Default-baseline er &quot;tom retur med ansatt&quot;. Brukaren kan
+          Default-baseline er &quot;tom retur med ansatt&quot;. Brukeren kan
           slå om til &quot;ansatt + returflight&quot; eller &quot;profesjonell
-          transportør&quot; på den enkelte annonsesida.
+          transportør&quot; på den enkelte annonsesiden.
         </p>
       </section>
 
       <section className="mt-12">
-        <h2 className="font-heading text-2xl font-semibold">Utsleppsfaktorar</h2>
+        <h2 className="font-heading text-2xl font-semibold">Utslippsfaktorer</h2>
         <Card className="mt-6 divide-y divide-[color:var(--border)]">
           {FACTORS.map((f) => (
             <div
@@ -132,8 +132,8 @@ saved_kg       = max(0, baseline_kg - vehicle_kg)`}
             Vs. tom retur
           </h3>
           <p className="mt-2 text-sm text-[color:var(--muted)]">
-            Same bil, men køyrt av ein freerider-sjåfør i staden for ein tilsett
-            som flyg attende. Sparing: ca. 50–80 kg CO₂ per 480 km.
+            Samme bil, men kjørt av en freerider-sjåfør i stedet for en ansatt
+            som flyr tilbake. Sparing: ca. 50–80 kg CO₂ per 480 km.
           </p>
         </Card>
         <Card className="p-5">
@@ -150,23 +150,23 @@ saved_kg       = max(0, baseline_kg - vehicle_kg)`}
             Vs. transportør
           </h3>
           <p className="mt-2 text-sm text-[color:var(--muted)]">
-            Ein 3-bils transportør har lågare utslepp per bil enn éin staff-tur,
-            men er framleis høgare enn ein freerider på elbil.
+            En 3-bils transportør har lavere utslipp per bil enn én staff-tur,
+            men er fortsatt høyere enn en freerider på elbil.
           </p>
         </Card>
       </section>
 
       <section className="mt-12 max-w-3xl">
-        <h2 className="font-heading text-2xl font-semibold">Kjelder</h2>
+        <h2 className="font-heading text-2xl font-semibold">Kilder</h2>
         <ul className="mt-4 list-disc pl-5 space-y-2 text-[color:var(--muted)]">
           <li>Defra Greenhouse gas reporting: conversion factors 2024</li>
           <li>IEA — Norway electricity carbon intensity (2024)</li>
           <li>EEA — emissions from passenger transport modes</li>
-          <li>Statens vegvesen — kjøretøyregister statistikk</li>
+          <li>Statens vegvesen — kjøretøyregister-statistikk</li>
         </ul>
         <p className="mt-3 text-sm text-[color:var(--muted)]">
-          Kjelder og koeffisientar blir reviderte minimum éin gong i året, og
-          alle endringar dokumenterast i changelog på{" "}
+          Kilder og koeffisienter blir revidert minimum én gang i året, og
+          alle endringer dokumenteres i changelog på{" "}
           <Link href="/blogg" className="text-[color:var(--primary)] underline">
             bloggen vår
           </Link>
@@ -175,7 +175,7 @@ saved_kg       = max(0, baseline_kg - vehicle_kg)`}
       </section>
 
       <section className="mt-12 max-w-3xl">
-        <h2 className="font-heading text-2xl font-semibold">Vanlege spørsmål</h2>
+        <h2 className="font-heading text-2xl font-semibold">Vanlige spørsmål</h2>
         <div className="mt-6">
           <FAQAccordion items={FAQ} />
         </div>
@@ -185,15 +185,15 @@ saved_kg       = max(0, baseline_kg - vehicle_kg)`}
         <Card className="p-8 grid md:grid-cols-3 gap-6 items-center">
           <div className="md:col-span-2">
             <h2 className="font-heading text-2xl font-semibold">
-              Vel ein elbil — sparingseffekt størst.
+              Velg en elbil — størst sparingseffekt.
             </h2>
             <p className="mt-2 text-[color:var(--muted)]">
-              Elbilar genererer ca. 1/7 av utsleppet til ein bensin-SUV per km.
-              Filtrer marknaden på elbil for max effekt.
+              Elbiler genererer ca. 1/7 av utslippet til en bensin-SUV per km.
+              Filtrer markedet på elbil for maksimal effekt.
             </p>
           </div>
           <div className="flex md:justify-end">
-            <LinkButton href="/biler?fuelType=electric">Sjå elbilar</LinkButton>
+            <LinkButton href="/biler?fuelType=electric">Se elbiler</LinkButton>
           </div>
         </Card>
       </section>
@@ -201,13 +201,13 @@ saved_kg       = max(0, baseline_kg - vehicle_kg)`}
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Miljø", url: "/miljo" },
           ]),
           articleSchema({
             headline: "Vår klimaeffekt og CO₂-metode",
             description:
-              "Slik reknar FreeRider.no CO₂-besparing per relokering.",
+              "Slik regner FreeRider.no CO₂-besparing per relokering.",
             url: "/miljo",
             datePublished: "2026-01-01",
           }),

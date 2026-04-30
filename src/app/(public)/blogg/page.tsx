@@ -10,9 +10,9 @@ import { formatDate } from "@/lib/format";
 import { absoluteUrl, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Blogg om bilflytting og leiebil i Noreg",
+  title: "Blogg om bilflytting og leiebil i Norge",
   description:
-    "Guidar, ruter, samanlikningar og bransje-innsikt om bilflytting og leigebil i Noreg.",
+    "Guider, ruter, sammenligninger og bransje-innsikt om bilflytting og leiebil i Norge.",
   alternates: { canonical: "/blogg" },
 };
 
@@ -29,7 +29,7 @@ export default function BloggIndex() {
           Blogg
         </h1>
         <p className="mt-3 text-[color:var(--muted)]">
-          Vi skriv om ruter, klimaeffekt og kva som skjer i bilutleige-bransjen.
+          Vi skriver om ruter, klimaeffekt og hva som skjer i bilutleie-bransjen.
         </p>
       </header>
 
@@ -63,7 +63,7 @@ export default function BloggIndex() {
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Blogg", url: "/blogg" },
           ]),
           {

@@ -29,10 +29,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const c = getCompanyBySlug(slug);
-  if (!c) return { title: "Utleiar ikkje funne" };
+  if (!c) return { title: "Utleier ikke funne" };
   return {
     title: `${c.name} — ledige relokeringsbilar`,
-    description: `Sjå alle ledige biler frå ${c.name} på FreeRider.no. Følg utleiar og få varsel om nye biler.`,
+    description: `Se alle ledige biler fra ${c.name} på FreeRider.nå. Følg utleier og få varsel om nye biler.`,
     alternates: { canonical: `/utleier/${c.slug}` },
   };
 }
@@ -79,10 +79,10 @@ export default async function CompanyPage({
             {company.description}
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Badge>{company.fleetSize.toLocaleString("nb-NO")} bilar</Badge>
-            <Badge>{company.locations.length} stasjonar</Badge>
-            <Badge>Sidan {company.established}</Badge>
-            <Badge tone="eco">{company.totalRelocations} relokeringar utført</Badge>
+            <Badge>{company.fleetSize.toLocaleString("nb-NO")} biler</Badge>
+            <Badge>{company.locations.length} stasjoner</Badge>
+            <Badge>Siden {company.established}</Badge>
+            <Badge tone="eco">{company.totalRelocations} relokeringer utført</Badge>
           </div>
         </div>
         <LinkButton href="/logg-inn" variant="secondary">
@@ -93,7 +93,7 @@ export default async function CompanyPage({
       <div className="mt-8 grid md:grid-cols-3 gap-4">
         <Card className="p-5">
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-            Aktive annonsar
+            Aktive annonser
           </p>
           <p className="mt-1 font-heading text-2xl font-semibold">
             {list.length}
@@ -101,7 +101,7 @@ export default async function CompanyPage({
         </Card>
         <Card className="p-5">
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-            CO₂ spart i ledige annonsar
+            CO₂ spart i ledige annonser
           </p>
           <p className="mt-1 font-heading text-2xl font-semibold text-[color:var(--primary)]">
             {formatKg(totalSaved)}
@@ -124,13 +124,13 @@ export default async function CompanyPage({
             href={`/biler?from=&to=`}
             className="text-sm text-[color:var(--muted)] hover:text-[color:var(--primary)]"
           >
-            Alle utleiarar
+            Alle utleiere
           </Link>
         </div>
         {list.length === 0 ? (
           <Card className="mt-6 p-8 text-center text-[color:var(--muted)]">
-            Ingen aktive annonsar akkurat no. Følg {company.name} for varsel når
-            nye annonsar blir publiserte.
+            Ingen aktive annonser akkurat nå. Følg {company.name} for varsel når
+            nye annonser blir publiserte.
           </Card>
         ) : (
           <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -144,7 +144,7 @@ export default async function CompanyPage({
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Utleiere", url: "/utleiere" },
             { name: company.name, url: `/utleier/${company.slug}` },
           ]),

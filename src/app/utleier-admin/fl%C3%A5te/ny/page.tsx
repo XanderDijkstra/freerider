@@ -18,8 +18,8 @@ export default function LeggTilBilPage() {
           Legg til bil
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          Registrer kvar bil i flåten éin gong. Du kan opprette annonsar mot
-          desse seinare.
+          Registrer hver bil i flåten én gang. Du kan opprette annonser mot
+          disse senere.
         </p>
       </header>
 
@@ -39,7 +39,7 @@ export default function LeggTilBilPage() {
             </Grid>
           </Section>
 
-          <Section title="Spesifikasjonar">
+          <Section title="Spesifikasjoner">
             <Grid>
               <Field label="Merke" id="make">
                 <input id="make" name="make" className={inputClass} required />
@@ -70,7 +70,7 @@ export default function LeggTilBilPage() {
             </Grid>
           </Section>
 
-          <Section title="Funksjonar">
+          <Section title="Funksjoner">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
               {["AC", "GPS", "Bluetooth", "Vinterdekk", "Tilhengarfeste", "Skiboks", "Barnesete"].map(
                 (f) => (

@@ -15,92 +15,92 @@ import {
 export const metadata: Metadata = {
   title: "Slik fungerer FreeRider.no",
   description:
-    "Lær korleis du finn, søkjer på og køyrer ein gratis relokeringsbil. Forsikring, drivstoff, ferjer — alt forklart.",
+    "Lær hvordan du finner, søker på og kjører en gratis relokeringsbil. Forsikring, drivstoff, ferger — alt forklart.",
   alternates: { canonical: "/hvordan-fungerer-det" },
 };
 
 const FAQ = [
   {
-    q: "Korleis finn eg ein relokeringsbil?",
-    a: "Gå til Ledige biler, filtrer på rute eller dato, og søk på dei oppdraga som passar deg.",
+    q: "Hvordan finner jeg en relokeringsbil?",
+    a: "Gå til Ledige biler, filtrer på rute eller dato, og søk på de oppdragene som passer deg.",
   },
   {
-    q: "Kor lang tid tek det å bli godkjent?",
-    a: "Utleiarar svarar typisk innan 6 timar. Populære oppdrag blir tildelt på minutt.",
+    q: "Hvor lang tid tar det å bli godkjent?",
+    a: "Utleiere svarer typisk innen 6 timer. Populære oppdrag blir tildelt på minutter.",
   },
   {
-    q: "Kva med drivstoff og lading?",
-    a: "Det varierer per oppdrag. Annonsen seier alltid om utleigaren dekker drivstoff/lading, eller om du leverer som motteke.",
+    q: "Hva med drivstoff og lading?",
+    a: "Det varierer per oppdrag. Annonsen sier alltid om utleieren dekker drivstoff og lading, eller om du leverer som mottatt.",
   },
   {
-    q: "Kva med ferjer og bompengar?",
-    a: "Annonsen seier eksplisitt kva som er dekka. Mange lange oppdrag dekkjer både ferje og bom — det står i 'Reglar for turen'.",
+    q: "Hva med ferger og bompenger?",
+    a: "Annonsen sier eksplisitt hva som er dekket. Mange lange oppdrag dekker både ferje og bom — det står i 'Regler for turen'.",
   },
   {
-    q: "Kva forsikring gjeld?",
-    a: "Bilen er forsikra av utleigaren under heile turen. Du følgjer same vilkår som ein vanleg leigebil-kunde.",
+    q: "Hvilken forsikring gjelder?",
+    a: "Bilen er forsikret av utleieren under hele turen. Du følger samme vilkår som en vanlig leiebil-kunde.",
   },
   {
-    q: "Kva om bilen får skade?",
-    a: "Meld umiddelbart til utleigaren og lag ein politirapport om naudsynt. Eigendel gjeld som på vanleg leige.",
+    q: "Hva om bilen får skade?",
+    a: "Meld umiddelbart til utleieren og lag en politirapport om nødvendig. Egenandel gjelder som på vanlig leie.",
   },
   {
-    q: "Kva med alder og sertifikat?",
-    a: "Vanleg minimumsalder er 21–23 år. Premium-bilar krev ofte 25 år. Annonsen viser krava.",
+    q: "Hva med alder og sertifikat?",
+    a: "Vanlig minimumsalder er 21–23 år. Premium-biler krever ofte 25 år. Annonsen viser kravene.",
   },
   {
-    q: "Kva om eg ikkje rekk leveringa?",
-    a: "Sei frå så snart som mogleg. Mindre forseinkingar er greie. Store overskridingar kan gi gebyr eller sperre.",
+    q: "Hva om jeg ikke rekker leveringen?",
+    a: "Si fra så snart som mulig. Mindre forsinkelser er greit. Store overskridelser kan gi gebyr eller sperre.",
   },
   {
-    q: "Kostar det meg noko?",
-    a: "Som utgangspunkt nei. Mange oppdrag er heilt gratis, andre dekkjer drivstoff og bom, og nokre gir flatt honorar.",
+    q: "Koster det meg noe?",
+    a: "Som utgangspunkt nei. Mange oppdrag er helt gratis, andre dekker drivstoff og bom, og noen gir flatt honorar.",
   },
   {
-    q: "Kan eg ta med passasjerar?",
-    a: "Ja, med mindre annonsen seier noko anna. Passasjerar er dekka av forsikringa på lik linje med deg.",
+    q: "Kan jeg ta med passasjerer?",
+    a: "Ja, med mindre annonsen sier noe annet. Passasjerer er dekket av forsikringen på lik linje med deg.",
   },
 ];
 
 const DRIVER_STEPS = [
   {
     title: "Lag konto",
-    body: "Registrer deg som sjåfør med namn, telefon og førarkortnummer. Sjåfør-konto blir auto-godkjent etter e-post-stadfesting.",
+    body: "Registrer deg som sjåfør med navn, telefon og førerkortnummer. Sjåfør-kontoen blir auto-godkjent etter e-post-bekreftelse.",
   },
   {
-    title: "Søk i marknaden",
-    body: "Filtrer på frå-by, til-by, dato og biltype. Du ser CO₂-besparing per oppdrag.",
+    title: "Søk i markedet",
+    body: "Filtrer på fra-by, til-by, dato og biltype. Du ser CO₂-besparing per oppdrag.",
   },
   {
     title: "Søk om bilen",
-    body: "Klikk 'Søk om denne bilen', vel ønska opphentings­tidspunkt og send inn. Du får svar via e-post og SMS.",
+    body: "Klikk 'Søk om denne bilen', velg ønsket opphentingstidspunkt og send inn. Du får svar via e-post og SMS.",
   },
   {
     title: "Hent og kjør",
-    body: "Møt opp på stasjonen til avtalt tid med førarkort og betalingskort (kun for deposit). Sjekk inn med stasjonen, kjør strekninga, og ver innanfor kilometergrensa.",
+    body: "Møt opp på stasjonen til avtalt tid med førerkort og betalingskort (kun for depositum). Sjekk inn med stasjonen, kjør strekningen, og hold deg innenfor kilometergrensen.",
   },
   {
     title: "Lever bilen",
-    body: "Lever til avtalt stasjon før fristen. Stasjonen sjekkar bilen og bekreftar — du er ferdig.",
+    body: "Lever til avtalt stasjon før fristen. Stasjonen sjekker bilen og bekrefter — du er ferdig.",
   },
 ];
 
 const COMPANY_STEPS = [
   {
-    title: "Søk om utleigar-konto",
+    title: "Søk om utleier-konto",
     body: "Registrer firma med org.nummer. Vi godkjenner kontoen manuelt for å sikre kvalitet.",
   },
   {
     title: "Legg inn flåten",
-    body: "Registrer dei bilane du vil kunne relokere — med foto, spesifikasjonar og tilstand.",
+    body: "Registrer de bilene du vil kunne relokere — med foto, spesifikasjoner og tilstand.",
   },
   {
     title: "Publiser annonse",
-    body: "Vel bil, sett rute og dato, definer reglar (drivstoff, ferje, kompensasjon) og publiser.",
+    body: "Velg bil, sett rute og dato, definer regler (drivstoff, ferje, kompensasjon) og publiser.",
   },
   {
     title: "Godkjenn sjåfør",
-    body: "Sjå søkjarar, vel den som passar best, og marker oppdraget som tildelt. Vi varsler alle.",
+    body: "Se søkere, velg den som passer best, og marker oppdraget som tildelt. Vi varsler alle.",
   },
 ];
 
@@ -113,21 +113,21 @@ export default function HvordanFungererDet() {
           Slik fungerer FreeRider.no
         </h1>
         <p className="mt-4 text-base md:text-lg text-[color:var(--muted)]">
-          Bilutleiarar har konstant skeiv flåtefordeling. FreeRider matchar dei
-          bilane som må flyttast med sjåførar som vil reise gratis. Alle vinn.
+          Bilutleiere har konstant skjev flåtefordeling. FreeRider matcher
+          bilene som må flyttes med sjåfører som vil reise gratis. Alle vinner.
         </p>
       </header>
 
       <section className="mt-12 max-w-3xl">
-        <h2 className="font-heading text-2xl font-semibold">Kvifor finst relokering?</h2>
+        <h2 className="font-heading text-2xl font-semibold">Hvorfor finnes relokering?</h2>
         <p className="mt-3 text-[color:var(--muted)]">
-          Reisemønsteret er asymmetrisk. Folk leiger ofte éin veg — t.d. Oslo-Bergen i
-          august, Bergen-Oslo i september. Bilane hopar seg opp i éin ende, og må flyttast
-          tilbake. Tradisjonelt har det vore ein dyr, klimaversinkande operasjon med
-          tilsette som køyrer og flyg attende. Vi kuttar mellomlekka.
+          Reisemønsteret er asymmetrisk. Folk leier ofte én vei — f.eks. Oslo–Bergen i
+          august, Bergen–Oslo i september. Bilene hoper seg opp i én ende, og må flyttes
+          tilbake. Tradisjonelt har det vært en dyr og klimaforverrende operasjon med
+          ansatte som kjører og flyr tilbake. Vi kutter mellomleddet.
         </p>
         <p className="mt-3 text-[color:var(--muted)]">
-          Sjå{" "}
+          Se{" "}
           <Link className="text-[color:var(--primary)] underline" href="/ordliste/relokering">
             relokering
           </Link>
@@ -139,7 +139,7 @@ export default function HvordanFungererDet() {
           <Link className="text-[color:var(--primary)] underline" href="/ordliste/flatebalansering">
             flåtebalansering
           </Link>{" "}
-          i ordlista for ei djupare forklaring.
+          i ordlisten for en dypere forklaring.
         </p>
       </section>
 
@@ -159,7 +159,7 @@ export default function HvordanFungererDet() {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-heading text-2xl font-semibold">For utleigarar</h2>
+        <h2 className="font-heading text-2xl font-semibold">For utleiere</h2>
         <ol className="mt-6 grid md:grid-cols-2 gap-4">
           {COMPANY_STEPS.map((step, idx) => (
             <Card key={step.title} className="p-5">
@@ -173,7 +173,7 @@ export default function HvordanFungererDet() {
         </ol>
         <div className="mt-6">
           <LinkButton href="/for-utleiere" variant="secondary">
-            Les meir for utleigarar
+            Les mer for utleiere
           </LinkButton>
         </div>
       </section>
@@ -182,28 +182,28 @@ export default function HvordanFungererDet() {
         <Card className="p-5">
           <h3 className="font-heading text-lg font-semibold">Forsikring og ansvar</h3>
           <p className="mt-2 text-sm text-[color:var(--muted)]">
-            Bilen er forsikra av utleigaren. Du får same vilkår som ein vanleg
-            leigebil-kunde — inkludert eigendel ved skade.
+            Bilen er forsikret av utleieren. Du får samme vilkår som en vanlig
+            leiebil-kunde — inkludert egenandel ved skade.
           </p>
         </Card>
         <Card className="p-5">
-          <h3 className="font-heading text-lg font-semibold">Kva om turen ikkje går?</h3>
+          <h3 className="font-heading text-lg font-semibold">Hva om turen ikke går?</h3>
           <p className="mt-2 text-sm text-[color:var(--muted)]">
-            Sei frå så tidleg som mogleg. Vi finn ein ny sjåfør, eller utleigaren
-            tek bilen tilbake. Du får ikkje gebyr for å seie frå i god tid.
+            Si fra så tidlig som mulig. Vi finner en ny sjåfør, eller utleieren
+            tar bilen tilbake. Du får ikke gebyr for å si fra i god tid.
           </p>
         </Card>
         <Card className="p-5">
-          <h3 className="font-heading text-lg font-semibold">Når passar det ikkje?</h3>
+          <h3 className="font-heading text-lg font-semibold">Når passer det ikke?</h3>
           <p className="mt-2 text-sm text-[color:var(--muted)]">
-            Dersom du må stoppe lenge, skal langt ut av rute, eller ikkje rekk
-            fristen — då er ein vanleg leigebil betre. Vi er ærlege om det.
+            Dersom du må stoppe lenge, skal langt ut av rute, eller ikke rekker
+            fristen — da er en vanlig leiebil bedre. Vi er ærlige om det.
           </p>
         </Card>
       </section>
 
       <section className="mt-12 max-w-3xl">
-        <h2 className="font-heading text-2xl font-semibold">Vanlege spørsmål</h2>
+        <h2 className="font-heading text-2xl font-semibold">Vanlige spørsmål</h2>
         <div className="mt-6">
           <FAQAccordion items={FAQ} />
         </div>
@@ -216,11 +216,11 @@ export default function HvordanFungererDet() {
               Klar for første tur?
             </h2>
             <p className="mt-2 text-[color:var(--muted)]">
-              Filtrer på ruta du vil reise. Du finn truleg ein bil i dag.
+              Filtrer på ruten du vil reise. Du finner trolig en bil i dag.
             </p>
           </div>
           <div className="flex md:justify-end gap-3">
-            <LinkButton href="/biler">Sjå ledige biler</LinkButton>
+            <LinkButton href="/biler">Se ledige biler</LinkButton>
           </div>
         </Card>
       </section>
@@ -228,13 +228,13 @@ export default function HvordanFungererDet() {
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Slik fungerer det", url: "/hvordan-fungerer-det" },
           ]),
           articleSchema({
             headline: "Slik fungerer FreeRider.no",
             description:
-              "Lær korleis du finn, søkjer på og køyrer ein gratis relokeringsbil.",
+              "Lær hvordan du finner, søker på og kjører en gratis relokeringsbil.",
             url: "/hvordan-fungerer-det",
             datePublished: "2026-01-01",
           }),

@@ -29,18 +29,18 @@ export default function AdminHome() {
       </header>
 
       <div className="grid md:grid-cols-4 gap-4">
-        <Stat label="Utleigarar" value={String(companies.length)} />
-        <Stat label="Aktive annonsar" value={String(list.length)} />
-        <Stat label="Sjåførar" value="248" />
+        <Stat label="Utleiere" value={String(companies.length)} />
+        <Stat label="Aktive annonser" value={String(list.length)} />
+        <Stat label="Sjåfører" value="248" />
         <Stat label="CO₂ spart totalt" value={formatKg(totalSaved)} accent />
       </div>
 
       <section>
-        <h2 className="font-heading text-xl font-semibold">Utleigarar — godkjenningskø</h2>
+        <h2 className="font-heading text-xl font-semibold">Utleiere — godkjenningskø</h2>
         <Card className="mt-4 divide-y divide-[color:var(--border)]">
           <Row name="Move&Go AS" status="pending" date="i dag" />
           <Row name="Nordic Cars AS" status="pending" date="i går" />
-          <Row name="Bilkompaniet AS" status="approved" date="3 dagar sidan" />
+          <Row name="Bilkompaniet AS" status="approved" date="3 dager siden" />
         </Card>
       </section>
     </div>

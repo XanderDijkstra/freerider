@@ -10,7 +10,7 @@ interface SearchParams {
 }
 
 const options = [
-  { value: "newest", label: "Nyaste" },
+  { value: "newest", label: "Nyeste" },
   { value: "distance", label: "Kortast distanse" },
   { value: "co2", label: "Mest CO₂ spart" },
 ];

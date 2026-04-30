@@ -19,7 +19,7 @@ export default function FlateePage() {
             Flåte
           </h1>
           <p className="mt-1 text-[color:var(--muted)]">
-            {myVehicles.length} bilar registrerte.
+            {myVehicles.length} biler registrerte.
           </p>
         </div>
         <LinkButton href="/utleier-admin/fl%C3%A5te/ny">Legg til bil</LinkButton>

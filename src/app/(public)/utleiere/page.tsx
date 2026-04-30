@@ -9,7 +9,7 @@ import { breadcrumbSchema, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Utleiere på FreeRider.no",
   description:
-    "Sjå alle bilutleiere som tilbyr relokeringsbilar på FreeRider.no. Hertz, Avis, Sixt, Budget og fleire.",
+    "Se alle bilutleiere som tilbyr relokeringsbilar på FreeRider.nå. Hertz, Avis, Sixt, Budget og flere.",
   alternates: { canonical: "/utleiere" },
 };
 
@@ -22,8 +22,8 @@ export default function UtleierePage() {
           Utleiere
         </h1>
         <p className="mt-3 text-[color:var(--muted)] max-w-2xl">
-          Heile bransjen samla på éin stad. Følg ein utleiar for å få varsel når
-          dei legg ut nye bilar i regionen din.
+          Hele bransjen samlet på ett sted. Følg en utleier for å få varsel når
+          de legger ut nye biler i regionen din.
         </p>
       </header>
 
@@ -36,7 +36,7 @@ export default function UtleierePage() {
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Utleiere", url: "/utleiere" },
           ]),
           {

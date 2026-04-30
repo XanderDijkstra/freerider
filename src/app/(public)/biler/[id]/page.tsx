@@ -56,16 +56,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const listing = getListingById(id);
-  if (!listing) return { title: "Bil ikkje funne" };
+  if (!listing) return { title: "Bil ikke funne" };
   const vehicle = getVehicleById(listing.vehicleId);
-  if (!vehicle) return { title: "Bil ikkje funne" };
+  if (!vehicle) return { title: "Bil ikke funne" };
   const co2 = computeCo2Saved({
     distanceKm: listing.distanceKm,
     fuelType: vehicle.fuelType,
   });
   return {
     title: `${vehicle.make} ${vehicle.model} ${listing.fromCity} → ${listing.toCity}`,
-    description: `Flytt ${vehicle.make} ${vehicle.model} frå ${listing.fromCity} til ${listing.toCity} ${formatDate(listing.pickupStart)}. ${formatKm(listing.distanceKm)}. ${formatKg(co2.savedKg)} CO₂ spart. Søk no.`,
+    description: `Flytt ${vehicle.make} ${vehicle.model} fra ${listing.fromCity} til ${listing.toCity} ${formatDate(listing.pickupStart)}. ${formatKm(listing.distanceKm)}. ${formatKg(co2.savedKg)} CO₂ spart. Søk nå.`,
     alternates: { canonical: `/biler/${listing.id}` },
   };
 }
@@ -96,7 +96,7 @@ export default async function ListingDetailPage({
       case "fuelCard":
         return "Drivstoffkort inkludert";
       case "tollsAndFerries":
-        return "Bom og ferje dekka";
+        return "Bom og ferje dekket";
       case "flatNok":
         return `${listing.compensation.amount} kr i kompensasjon`;
     }
@@ -115,7 +115,7 @@ export default async function ListingDetailPage({
         <div>
           <Badge tone="eco">{labelForFuel(vehicle.fuelType)}</Badge>
           <h1 className="mt-3 font-heading text-3xl md:text-4xl font-semibold">
-            {vehicle.make} {vehicle.model} frå {listing.fromCity} til{" "}
+            {vehicle.make} {vehicle.model} fra {listing.fromCity} til{" "}
             {listing.toCity}
           </h1>
           <p className="mt-3 text-[color:var(--muted)]">
@@ -153,7 +153,7 @@ export default async function ListingDetailPage({
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-                  Hentestad
+                  Hentested
                 </p>
                 <p className="mt-1 font-medium flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-[color:var(--secondary)]" aria-hidden />
@@ -165,7 +165,7 @@ export default async function ListingDetailPage({
               </div>
               <div>
                 <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-                  Leveringsstad
+                  Leveringssted
                 </p>
                 <p className="mt-1 font-medium flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-[color:var(--secondary)]" aria-hidden />
@@ -209,9 +209,9 @@ export default async function ListingDetailPage({
                   </p>
                   <p className="text-sm text-[color:var(--muted)] mt-1">
                     vs. tom retur i tilsvarande bil ({formatKg(co2.baselineKg)}).
-                    Oppdraget sjølv slepp ut ca. {formatKg(co2.vehicleKg)}.{" "}
+                    Oppdraget selv slepp ut ca. {formatKg(co2.vehicleKg)}.{" "}
                     <Link href="/miljo" className="text-[color:var(--primary)] underline">
-                      Sjå metoden
+                      Se metoden
                     </Link>
                     .
                   </p>
@@ -239,7 +239,7 @@ export default async function ListingDetailPage({
             </div>
           </Section>
 
-          <Section title="Reglar for turen">
+          <Section title="Regler for turen">
             <ul className="grid sm:grid-cols-2 gap-3 text-sm">
               <Rule
                 icon={<Fuel className="h-4 w-4" />}
@@ -254,7 +254,7 @@ export default async function ListingDetailPage({
               <Rule
                 icon={<CreditCard className="h-4 w-4" />}
                 label="Bompengar"
-                value={listing.rules.tolls === "covered" ? "Dekka" : "Ikkje dekka"}
+                value={listing.rules.tolls === "covered" ? "Dekket" : "Ikkje dekket"}
               />
               <Rule
                 icon={<ShieldCheck className="h-4 w-4" />}
@@ -279,7 +279,7 @@ export default async function ListingDetailPage({
             ) : null}
           </Section>
 
-          <Section title="Utleigaren">
+          <Section title="Utleieren">
             <Card className="p-5 flex items-start gap-4">
               <div
                 className="h-12 w-12 rounded-lg flex items-center justify-center text-white font-semibold shrink-0"
@@ -296,15 +296,15 @@ export default async function ListingDetailPage({
                   {company.name}
                 </Link>
                 <p className="text-sm text-[color:var(--muted)] mt-1">
-                  {company.fleetSize.toLocaleString("nb-NO")} bilar ·{" "}
-                  {company.locations.length} stasjonar · sidan{" "}
+                  {company.fleetSize.toLocaleString("nb-NO")} biler ·{" "}
+                  {company.locations.length} stasjoner · siden{" "}
                   {company.established}
                 </p>
                 <Link
                   href={`/utleier/${company.slug}`}
                   className="mt-3 inline-flex items-center gap-1 text-sm text-[color:var(--primary)] hover:underline"
                 >
-                  Sjå alle bilar frå {company.name}{" "}
+                  Se alle biler fra {company.name}{" "}
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </Link>
               </div>
@@ -323,7 +323,7 @@ export default async function ListingDetailPage({
             <ul className="mt-4 space-y-2 text-sm">
               <li className="flex gap-2 items-start">
                 <CheckCircle2 className="h-4 w-4 text-[color:var(--success)] mt-0.5" aria-hidden />
-                Full forsikring under heile turen
+                Full forsikring under hele turen
               </li>
               <li className="flex gap-2 items-start">
                 <CheckCircle2 className="h-4 w-4 text-[color:var(--success)] mt-0.5" aria-hidden />
@@ -342,7 +342,7 @@ export default async function ListingDetailPage({
               Søk om denne bilen
             </LinkButton>
             <p className="mt-2 text-xs text-[color:var(--muted)] text-center">
-              Krever konto. Tek 1 minutt å registrere.
+              Krever konto. Tar 1 minutt å registrere.
             </p>
           </Card>
         </aside>
@@ -351,7 +351,7 @@ export default async function ListingDetailPage({
       {related.length > 0 ? (
         <section className="mt-16">
           <h2 className="font-heading text-2xl font-semibold mb-6">
-            Lignande bilar
+            Lignande biler
           </h2>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {related.map((l) => (
@@ -364,7 +364,7 @@ export default async function ListingDetailPage({
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Ledige biler", url: "/biler" },
             {
               name: `${vehicle.make} ${vehicle.model}`,
@@ -528,9 +528,9 @@ function fuelPolicyLabel(p: string): string {
     case "returnFull":
       return "Lever med full tank";
     case "returnAsReceived":
-      return "Lever som motteke";
+      return "Lever som mottatt";
     case "companyPays":
-      return "Utleigaren dekker";
+      return "Utleieren dekker";
     default:
       return p;
   }
@@ -539,11 +539,11 @@ function fuelPolicyLabel(p: string): string {
 function ferryPolicyLabel(p: string): string {
   switch (p) {
     case "covered":
-      return "Dekka av utleigar";
+      return "Dekket av utleier";
     case "notCovered":
-      return "Du betaler sjølv";
+      return "Du betaler selv";
     case "partial":
-      return "Delvis dekka";
+      return "Delvis dekket";
     default:
       return p;
   }

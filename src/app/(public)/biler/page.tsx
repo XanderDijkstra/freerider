@@ -13,9 +13,9 @@ import { breadcrumbSchema, absoluteUrl } from "@/lib/seo";
 import type { FuelType } from "@/lib/co2";
 
 export const metadata: Metadata = {
-  title: "Ledige biler for relokering i Noreg",
+  title: "Ledige biler for relokering i Norge",
   description:
-    "Søk i alle ledige relokeringsbilar frå norske bilutleiere. Filtrer på rute, datoar og biltype. Køyr gratis i dag.",
+    "Søk i alle ledige relokeringsbilar fra norske bilutleiere. Filtrer på rute, datoer og biltype. Kjør gratis i dag.",
   alternates: { canonical: "/biler" },
 };
 
@@ -102,7 +102,7 @@ export default async function BilerPage({
           {results.length === 0 ? (
             <Card className="p-10 text-center">
               <p className="text-[color:var(--muted)]">
-                Ingen biler matchar filteret. Prøv å fjerna eit filter, eller slå
+                Ingen biler matcher filteret. Prøv å fjernet et filter, eller slå
                 på varsel for denne kombinasjonen.
               </p>
               <div className="mt-4">
@@ -124,7 +124,7 @@ export default async function BilerPage({
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Ledige biler", url: "/biler" },
           ]),
           {
@@ -172,7 +172,7 @@ function FiltersPanel({
         </Field>
         <Field label="Frå">
           <select name="from" defaultValue={params.from ?? ""} className={inputClass}>
-            <option value="">Alle byar</option>
+            <option value="">Alle byer</option>
             {fromCities.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -182,7 +182,7 @@ function FiltersPanel({
         </Field>
         <Field label="Til">
           <select name="to" defaultValue={params.to ?? ""} className={inputClass}>
-            <option value="">Alle byar</option>
+            <option value="">Alle byer</option>
             {toCities.map((c) => (
               <option key={c} value={c}>
                 {c}

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 };
 
 const STEPS = [
-  "Vel bil",
+  "Velg bil",
   "Rute",
-  "Datoar",
-  "Reglar",
+  "Datoer",
+  "Regler",
   "Kompensasjon",
   "Førehandsvisning",
 ];
@@ -24,16 +24,16 @@ export default function NyAnnonsePage() {
           Ny annonse
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          6-stegs vegvisar. Du kan lagre utkast undervegs.
+          6-stegs veiviser. Du kan lagre utkast underveis.
         </p>
       </header>
 
       <Stepper current={0} />
 
       <Card className="p-6">
-        <h2 className="font-heading text-xl font-semibold">Vel bil frå flåten</h2>
+        <h2 className="font-heading text-xl font-semibold">Velg bil fra flåten</h2>
         <p className="mt-2 text-sm text-[color:var(--muted)]">
-          Berre bilar med status &quot;Ledig&quot; kan brukast i ein annonse.
+          Bare biler med status &quot;Ledig&quot; kan brukast i en annonse.
         </p>
         <div className="mt-4">
           <input

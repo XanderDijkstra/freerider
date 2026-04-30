@@ -17,10 +17,10 @@ export default function DriverDashboard() {
     <div className="space-y-8">
       <header>
         <h1 className="font-heading text-2xl md:text-3xl font-semibold">
-          Hei, klar for ein tur?
+          Hei, klar for en tur?
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          Sjå dine aktive forespørslar, nye annonsar frå utleigarar du følgjer,
+          Se dine aktive forespørsler, nye annonser fra utleiere du følger,
           og total CO₂-besparing du har bidrege med.
         </p>
       </header>
@@ -28,7 +28,7 @@ export default function DriverDashboard() {
       <div className="grid md:grid-cols-3 gap-4">
         <Card className="p-5">
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-            Aktive forespørslar
+            Aktive forespørsler
           </p>
           <p className="mt-1 font-heading text-2xl font-semibold">2</p>
           <p className="text-xs text-[color:var(--muted)] mt-1">1 godkjent · 1 avventer</p>
@@ -54,7 +54,7 @@ export default function DriverDashboard() {
         <div className="flex items-center justify-between flex-wrap gap-3">
           <h2 className="font-heading text-xl font-semibold">Anbefalt for deg</h2>
           <LinkButton href="/biler" variant="secondary" size="sm">
-            Sjå alle annonsar
+            Se alle annonser
           </LinkButton>
         </div>
         <div className="mt-4 grid gap-5 md:grid-cols-2">
@@ -65,13 +65,13 @@ export default function DriverDashboard() {
       </section>
 
       <section>
-        <h2 className="font-heading text-xl font-semibold">Følgde utleigarar</h2>
+        <h2 className="font-heading text-xl font-semibold">Fulgte utleiere</h2>
         <Card className="mt-4 p-5 flex items-center justify-between flex-wrap gap-3">
           <div>
             <p className="font-medium">Hertz Norge</p>
-            <p className="text-sm text-[color:var(--muted)]">3 nye annonsar i veka</p>
+            <p className="text-sm text-[color:var(--muted)]">3 nye annonser i veka</p>
           </div>
-          <Badge tone="success">Følgjer</Badge>
+          <Badge tone="success">Følger</Badge>
         </Card>
       </section>
     </div>

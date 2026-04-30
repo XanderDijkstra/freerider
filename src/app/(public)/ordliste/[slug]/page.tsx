@@ -26,7 +26,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const e = getGlossaryEntry(slug);
-  if (!e) return { title: "Term ikkje funnen" };
+  if (!e) return { title: "Term ikke funnen" };
   return {
     title: `${e.term} — ordliste`,
     description: e.short,
@@ -99,15 +99,15 @@ export default async function GlossaryTerm({
         <Card className="mt-12 p-6 grid md:grid-cols-3 gap-4 items-center">
           <div className="md:col-span-2">
             <h2 className="font-heading text-lg font-semibold">
-              Sjå korleis det fungerer i praksis
+              Se hvordan det fungerer i praksis
             </h2>
             <p className="text-sm text-[color:var(--muted)] mt-1">
-              Få kontekst på dei aktuelle annonsane på marknaden.
+              Få kontekst på de aktuelle annonsene i markedet.
             </p>
           </div>
           <div className="flex md:justify-end">
             <LinkButton href="/biler" variant="secondary">
-              Sjå ledige biler
+              Se ledige biler
             </LinkButton>
           </div>
         </Card>
@@ -116,7 +116,7 @@ export default async function GlossaryTerm({
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Ordliste", url: "/ordliste" },
             { name: entry.term, url: `/ordliste/${entry.slug}` },
           ]),

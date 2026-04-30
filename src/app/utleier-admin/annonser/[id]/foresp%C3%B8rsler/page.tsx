@@ -7,7 +7,7 @@ import { getListingById } from "@/data/listings";
 import { getVehicleById } from "@/data/vehicles";
 
 export const metadata: Metadata = {
-  title: "Forespørslar på annonse",
+  title: "Forespørsler på annonse",
   robots: { index: false },
 };
 
@@ -17,7 +17,7 @@ const APPLICANTS = [
     license: "**** **** 1245",
     phone: "+47 412 34 567",
     pickupAt: "3. mai kl. 09:00",
-    message: "Skal til Bergen for ein konferanse, kan hente tidleg.",
+    message: "Skal til Bergen for en konferanse, kan hente tidlig.",
   },
   {
     name: "Henrik Bø",
@@ -49,7 +49,7 @@ export default async function ListingRequestsPage({
     <div className="space-y-6">
       <header>
         <h1 className="font-heading text-2xl md:text-3xl font-semibold">
-          Forespørslar
+          Forespørsler
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
           {vehicle.make} {vehicle.model} · {listing.fromCity} → {listing.toCity}
@@ -72,7 +72,7 @@ export default async function ListingRequestsPage({
                   Sertifikat: {a.license} · {a.phone}
                 </p>
                 <p className="text-sm mt-2">
-                  <span className="text-[color:var(--muted)]">Ønska opphenting:</span>{" "}
+                  <span className="text-[color:var(--muted)]">Ønsket opphenting:</span>{" "}
                   {a.pickupAt}
                 </p>
                 {a.message ? (

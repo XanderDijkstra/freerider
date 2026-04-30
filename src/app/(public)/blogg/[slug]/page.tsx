@@ -29,7 +29,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const e = getBlogEntry(slug);
-  if (!e) return { title: "Artikkel ikkje funnen" };
+  if (!e) return { title: "Artikkel ikke funnen" };
   return {
     title: e.title,
     description: e.description,
@@ -85,14 +85,14 @@ export default async function BlogArticle({
           <Card className="p-6 grid md:grid-cols-3 gap-4 items-center">
             <div className="md:col-span-2">
               <h2 className="font-heading text-xl font-semibold">
-                Klar for ein gratis biltur?
+                Klar for en gratis biltur?
               </h2>
               <p className="mt-1 text-sm text-[color:var(--muted)]">
-                Sjå kva ledige bilar som finst akkurat no.
+                Se hva ledige biler som finnes akkurat nå.
               </p>
             </div>
             <div className="flex md:justify-end">
-              <LinkButton href="/biler">Sjå ledige biler</LinkButton>
+              <LinkButton href="/biler">Se ledige biler</LinkButton>
             </div>
           </Card>
         </div>
@@ -100,7 +100,7 @@ export default async function BlogArticle({
 
       {related.length > 0 ? (
         <section className="mt-14 max-w-3xl mx-auto">
-          <h2 className="font-heading text-2xl font-semibold">Lese meir</h2>
+          <h2 className="font-heading text-2xl font-semibold">Les mer</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {related.map((e) => (
               <Link
@@ -125,7 +125,7 @@ export default async function BlogArticle({
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Heim", url: "/" },
+            { name: "Hjem", url: "/" },
             { name: "Blogg", url: "/blogg" },
             { name: entry.title, url: `/blogg/${entry.slug}` },
           ]),

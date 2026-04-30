@@ -3,7 +3,7 @@ import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Varselinnstillingar",
+  title: "Varselinnstillinger",
   robots: { index: false },
 };
 
@@ -16,11 +16,11 @@ const PREFS = [
   {
     key: "statusChange",
     title: "Status på forespørslene mine",
-    desc: "Godkjenning, avslag eller endringar i opphenting.",
+    desc: "Godkjenning, avslag eller endringer i opphenting.",
   },
   {
     key: "pickupReminder",
-    title: "Påminning før opphenting",
+    title: "Påminnelse før opphenting",
     desc: "24 t før opphenting får du e-post + SMS.",
   },
 ];
@@ -30,10 +30,10 @@ export default function VarslerPage() {
     <div className="space-y-6">
       <header>
         <h1 className="font-heading text-2xl md:text-3xl font-semibold">
-          Varselinnstillingar
+          Varselinnstillinger
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          Velg hva for varsel du vil ha — og på hva kanal.
+          Velg hvilke varsler du vil ha — og på hvilken kanal.
         </p>
       </header>
       <Card className="divide-y divide-[color:var(--border)]">

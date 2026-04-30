@@ -18,15 +18,15 @@ export default function ProfilPage() {
           Profil
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          Slik ser FreeRider-siden di ut for sjåfører.
+          Slik ser FreeRider-siden din ut for sjåfører.
         </p>
       </header>
       <Card className="p-6">
         <form className="space-y-4">
-          <Field label="Firmanamn">
+          <Field label="Firmanavn">
             <input className={inputClass} defaultValue="Hertz Norge" />
           </Field>
-          <Field label="Beskriving">
+          <Field label="Beskrivelse">
             <textarea rows={4} className={`${inputClass} h-auto py-2`} defaultValue="Hertz har 80 stasjoner i Norge ..." />
           </Field>
           <Field label="Kontakt-e-post">

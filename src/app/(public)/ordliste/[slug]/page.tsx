@@ -26,7 +26,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const e = getGlossaryEntry(slug);
-  if (!e) return { title: "Term ikke funnen" };
+  if (!e) return { title: "Term ikke funnet" };
   return {
     title: `${e.term} — ordliste`,
     description: e.short,

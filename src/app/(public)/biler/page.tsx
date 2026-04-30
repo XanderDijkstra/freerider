@@ -15,7 +15,7 @@ import type { FuelType } from "@/lib/co2";
 export const metadata: Metadata = {
   title: "Ledige biler for relokering i Norge",
   description:
-    "Søk i alle ledige relokeringsbilar fra norske bilutleiere. Filtrer på rute, datoer og biltype. Kjør gratis i dag.",
+    "Søk i alle ledige relokeringsbiler fra norske bilutleiere. Filtrer på rute, datoer og biltype. Kjør gratis i dag.",
   alternates: { canonical: "/biler" },
 };
 
@@ -83,7 +83,7 @@ export default async function BilerPage({
           </h1>
           <p className="mt-2 text-[color:var(--muted)]">
             {results.length} {results.length === 1 ? "treff" : "treff"} ·
-            oppdatert kontinuerleg
+            oppdatert kontinuerlig
           </p>
         </div>
         <SortDropdown current={params.sort} params={params} />
@@ -102,7 +102,7 @@ export default async function BilerPage({
           {results.length === 0 ? (
             <Card className="p-10 text-center">
               <p className="text-[color:var(--muted)]">
-                Ingen biler matcher filteret. Prøv å fjernet et filter, eller slå
+                Ingen biler matcher filteret. Prøv å fjerne et filter, eller slå
                 på varsel for denne kombinasjonen.
               </p>
               <div className="mt-4">
@@ -166,11 +166,11 @@ function FiltersPanel({
             type="text"
             name="q"
             defaultValue={params.q ?? ""}
-            placeholder="t.d. Tesla, Bergen"
+            placeholder="f.eks. Tesla, Bergen"
             className={inputClass}
           />
         </Field>
-        <Field label="Frå">
+        <Field label="Fra">
           <select name="from" defaultValue={params.from ?? ""} className={inputClass}>
             <option value="">Alle byer</option>
             {fromCities.map((c) => (

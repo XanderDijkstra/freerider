@@ -29,10 +29,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const c = getCompanyBySlug(slug);
-  if (!c) return { title: "Utleier ikke funne" };
+  if (!c) return { title: "Utleier ikke funnet" };
   return {
-    title: `${c.name} — ledige relokeringsbilar`,
-    description: `Se alle ledige biler fra ${c.name} på FreeRider.nå. Følg utleier og få varsel om nye biler.`,
+    title: `${c.name} — ledige relokeringsbiler`,
+    description: `Se alle ledige biler fra ${c.name} på FreeRider.no. Følg utleier og få varsel om nye biler.`,
     alternates: { canonical: `/utleier/${c.slug}` },
   };
 }
@@ -109,7 +109,7 @@ export default async function CompanyPage({
         </Card>
         <Card className="p-5">
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-            Stasjonar
+            Stasjoner
           </p>
           <p className="mt-1 text-sm text-[color:var(--foreground)]">
             {company.locations.join(", ")}

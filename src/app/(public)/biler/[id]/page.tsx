@@ -56,9 +56,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const listing = getListingById(id);
-  if (!listing) return { title: "Bil ikke funne" };
+  if (!listing) return { title: "Bil ikke funnet" };
   const vehicle = getVehicleById(listing.vehicleId);
-  if (!vehicle) return { title: "Bil ikke funne" };
+  if (!vehicle) return { title: "Bil ikke funnet" };
   const co2 = computeCo2Saved({
     distanceKm: listing.distanceKm,
     fuelType: vehicle.fuelType,
@@ -182,7 +182,7 @@ export default async function ListingDetailPage({
                 icon={<Clock className="h-4 w-4" aria-hidden />}
                 label="Opphenting"
                 value={`${formatDate(listing.pickupStart)} kl. ${formatTime(listing.pickupStart)}`}
-                hint={`fram til ${formatDate(listing.pickupEnd)} kl. ${formatTime(listing.pickupEnd)}`}
+                hint={`frem til ${formatDate(listing.pickupEnd)} kl. ${formatTime(listing.pickupEnd)}`}
               />
               <Stat
                 icon={<Calendar className="h-4 w-4" aria-hidden />}

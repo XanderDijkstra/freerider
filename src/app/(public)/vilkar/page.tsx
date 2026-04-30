@@ -50,7 +50,7 @@ export default function VilkarPage() {
 
           <h2 className="font-heading text-xl font-semibold">5. Avbestilling</h2>
           <p>
-            Sjåfør kan kansellere fram til 24 t før opphenting uten gebyr. Etter
+            Sjåfør kan kansellere frem til 24 t før opphenting uten gebyr. Etter
             det kan utleieren kreve en liten kompensasjon for dekket kostnader.
           </p>
 

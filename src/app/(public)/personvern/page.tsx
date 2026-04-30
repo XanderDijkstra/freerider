@@ -25,27 +25,27 @@ export default function PersonvernPage() {
           <h2 className="font-heading text-xl font-semibold">Behandlingsansvarlig</h2>
           <p>
             FreeRider AS, Storgata 1, 0155 Oslo, org.nr 000 000 000, er behandlingsansvarlig
-            for personopplysningene vi samler inn på FreeRider.nå.
+            for personopplysningene vi samler inn på FreeRider.no.
           </p>
 
           <h2 className="font-heading text-xl font-semibold">Hva vi samler inn</h2>
           <ul className="list-disc pl-5 space-y-1">
             <li>Konto-data: navn, e-post, telefon, førerkortnummer.</li>
             <li>Bruksdata: oppdrag du søker på, utleiere du følger, varsel-preferanser.</li>
-            <li>Tekniske data: IP-adresse, nettlesar, plattform — for tryggleik og diagnose.</li>
+            <li>Tekniske data: IP-adresse, nettleser, plattform — for trygghet og diagnose.</li>
           </ul>
 
           <h2 className="font-heading text-xl font-semibold">Hvordan vi bruker data</h2>
           <p>
             Vi bruker dataene til å levere tjenesten, formidle oppdrag, sende varsel,
-            og oppfylle juridiske krav (forsikring, KYC for utleiere). Vi sel aldri data
+            og oppfylle juridiske krav (forsikring, KYC for utleiere). Vi selger aldri data
             til tredjepart.
           </p>
 
-          <h2 className="font-heading text-xl font-semibold">Dine rettar</h2>
+          <h2 className="font-heading text-xl font-semibold">Dine rettigheter</h2>
           <p>
             Du kan be om innsyn, retting, sletting eller dataportabilitet. Ta kontakt på
-            personvern@freerider.nå.
+            personvern@freerider.no.
           </p>
 
           <h2 className="font-heading text-xl font-semibold">Cookies</h2>

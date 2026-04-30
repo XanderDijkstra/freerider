@@ -13,7 +13,7 @@ const STEPS = [
   "Datoer",
   "Regler",
   "Kompensasjon",
-  "Førehandsvisning",
+  "Forhåndsvisning",
 ];
 
 export default function NyAnnonsePage() {
@@ -33,7 +33,7 @@ export default function NyAnnonsePage() {
       <Card className="p-6">
         <h2 className="font-heading text-xl font-semibold">Velg bil fra flåten</h2>
         <p className="mt-2 text-sm text-[color:var(--muted)]">
-          Bare biler med status &quot;Ledig&quot; kan brukast i en annonse.
+          Bare biler med status &quot;Ledig&quot; kan brukes i en annonse.
         </p>
         <div className="mt-4">
           <input

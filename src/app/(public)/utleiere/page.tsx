@@ -9,7 +9,7 @@ import { breadcrumbSchema, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Utleiere på FreeRider.no",
   description:
-    "Se alle bilutleiere som tilbyr relokeringsbilar på FreeRider.nå. Hertz, Avis, Sixt, Budget og flere.",
+    "Se alle bilutleiere som tilbyr relokeringsbiler på FreeRider.no. Hertz, Avis, Sixt, Budget og flere.",
   alternates: { canonical: "/utleiere" },
 };
 

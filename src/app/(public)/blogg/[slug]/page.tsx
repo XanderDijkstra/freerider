@@ -29,7 +29,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const e = getBlogEntry(slug);
-  if (!e) return { title: "Artikkel ikke funnen" };
+  if (!e) return { title: "Artikkel ikke funnet" };
   return {
     title: e.title,
     description: e.description,

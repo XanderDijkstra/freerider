@@ -11,7 +11,7 @@ interface SearchParams {
 
 const options = [
   { value: "newest", label: "Nyeste" },
-  { value: "distance", label: "Kortast distanse" },
+  { value: "distance", label: "Korteste distanse" },
   { value: "co2", label: "Mest CO₂ spart" },
 ];
 

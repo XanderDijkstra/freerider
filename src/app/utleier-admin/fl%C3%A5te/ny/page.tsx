@@ -33,7 +33,7 @@ export default function LeggTilBilPage() {
               <Field label="Internt ID" id="internal">
                 <input id="internal" name="internal" className={inputClass} />
               </Field>
-              <Field label="VIN (valfritt)" id="vin">
+              <Field label="VIN (valgfritt)" id="vin">
                 <input id="vin" name="vin" className={inputClass} />
               </Field>
             </Grid>
@@ -72,7 +72,7 @@ export default function LeggTilBilPage() {
 
           <Section title="Funksjoner">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
-              {["AC", "GPS", "Bluetooth", "Vinterdekk", "Tilhengarfeste", "Skiboks", "Barnesete"].map(
+              {["AC", "GPS", "Bluetooth", "Vinterdekk", "Tilhengerfeste", "Skiboks", "Barnesete"].map(
                 (f) => (
                   <label key={f} className="flex items-center gap-2">
                     <input type="checkbox" name="features" value={f} />

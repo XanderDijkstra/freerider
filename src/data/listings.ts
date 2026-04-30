@@ -206,7 +206,7 @@ export const listings: Listing[] = [
       insurance: "standard",
       minAge: 23,
       licenseClass: "B",
-      notes: "Van — passer fint for flytting eller stor familieferie.",
+      notes: "Van - passer fint for flytting eller stor familieferie.",
     },
     compensation: { kind: "flatNok", amount: 800 },
     status: "published",

@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Slik fungerer FreeRider.no",
   description:
-    "Lær hvordan du finner, søker på og kjører en gratis relokeringsbil. Forsikring, drivstoff, ferger — alt forklart.",
+    "Lær hvordan du finner, søker på og kjører en gratis relokeringsbil. Forsikring, drivstoff, ferger - alt forklart.",
   alternates: { canonical: "/hvordan-fungerer-det" },
 };
 
@@ -34,7 +34,7 @@ const FAQ = [
   },
   {
     q: "Hva med ferger og bompenger?",
-    a: "Annonsen sier eksplisitt hva som er dekket. Mange lange oppdrag dekker både ferje og bom — det står i 'Regler for turen'.",
+    a: "Annonsen sier eksplisitt hva som er dekket. Mange lange oppdrag dekker både ferje og bom - det står i 'Regler for turen'.",
   },
   {
     q: "Hvilken forsikring gjelder?",
@@ -81,7 +81,7 @@ const DRIVER_STEPS = [
   },
   {
     title: "Lever bilen",
-    body: "Lever til avtalt stasjon før fristen. Stasjonen sjekker bilen og bekrefter — du er ferdig.",
+    body: "Lever til avtalt stasjon før fristen. Stasjonen sjekker bilen og bekrefter - du er ferdig.",
   },
 ];
 
@@ -92,7 +92,7 @@ const COMPANY_STEPS = [
   },
   {
     title: "Legg inn flåten",
-    body: "Registrer de bilene du vil kunne relokere — med foto, spesifikasjoner og tilstand.",
+    body: "Registrer de bilene du vil kunne relokere - med foto, spesifikasjoner og tilstand.",
   },
   {
     title: "Publiser annonse",
@@ -121,7 +121,7 @@ export default function HvordanFungererDet() {
       <section className="mt-12 max-w-3xl">
         <h2 className="font-heading text-2xl font-semibold">Hvorfor finnes relokering?</h2>
         <p className="mt-3 text-[color:var(--muted)]">
-          Reisemønsteret er asymmetrisk. Folk leier ofte én vei — f.eks. Oslo–Bergen i
+          Reisemønsteret er asymmetrisk. Folk leier ofte én vei - f.eks. Oslo–Bergen i
           august, Bergen–Oslo i september. Bilene hoper seg opp i én ende, og må flyttes
           tilbake. Tradisjonelt har det vært en dyr og klimaforverrende operasjon med
           ansatte som kjører og flyr tilbake. Vi kutter mellomleddet.
@@ -183,7 +183,7 @@ export default function HvordanFungererDet() {
           <h3 className="font-heading text-lg font-semibold">Forsikring og ansvar</h3>
           <p className="mt-2 text-sm text-[color:var(--muted)]">
             Bilen er forsikret av utleieren. Du får samme vilkår som en vanlig
-            leiebil-kunde — inkludert egenandel ved skade.
+            leiebil-kunde - inkludert egenandel ved skade.
           </p>
         </Card>
         <Card className="p-5">
@@ -197,7 +197,7 @@ export default function HvordanFungererDet() {
           <h3 className="font-heading text-lg font-semibold">Når passer det ikke?</h3>
           <p className="mt-2 text-sm text-[color:var(--muted)]">
             Dersom du må stoppe lenge, skal langt ut av rute, eller ikke rekker
-            fristen — da er en vanlig leiebil bedre. Vi er ærlige om det.
+            fristen - da er en vanlig leiebil bedre. Vi er ærlige om det.
           </p>
         </Card>
       </section>

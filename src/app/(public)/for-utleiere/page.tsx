@@ -14,7 +14,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Bilflytting for utleiere — spar opptil 70 %",
+  title: "Bilflytting for utleiere - spar opptil 70 %",
   description:
     "Reduser kostnaden ved relokering. Publiser ledige biler på FreeRider.no og få sjåfører som flytter bilen for deg. Lavere kostnad, lavere CO₂.",
   alternates: { canonical: "/for-utleiere" },
@@ -107,7 +107,7 @@ export default function ForUtleierePage() {
         </h1>
         <p className="mt-4 text-base md:text-lg text-[color:var(--muted)]">
           Erstatt staff-relokeringer med freerider-sjåfører. Lavere kostnad,
-          ingen returflybillett, raskere omløp i flåten — og full kontroll over
+          ingen returflybillett, raskere omløp i flåten - og full kontroll over
           hvem som tar bilen.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
@@ -142,7 +142,7 @@ export default function ForUtleierePage() {
           </p>
           <ul className="mt-5 space-y-3">
             {[
-              "Plug-and-play — ingen integrasjon nødvendig for å starte.",
+              "Plug-and-play - ingen integrasjon nødvendig for å starte.",
               "Du beholder full kontroll: velg sjåfør, velg regler, velg kompensasjon.",
               "Innebygd CO₂-rapport per oppdrag for Scope 3-rapporteringen.",
               "Forsikring og ansvar går som en vanlig leie.",

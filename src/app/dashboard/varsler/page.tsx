@@ -33,7 +33,7 @@ export default function VarslerPage() {
           Varselinnstillinger
         </h1>
         <p className="mt-1 text-[color:var(--muted)]">
-          Velg hvilke varsler du vil ha — og på hvilken kanal.
+          Velg hvilke varsler du vil ha - og på hvilken kanal.
         </p>
       </header>
       <Card className="divide-y divide-[color:var(--border)]">

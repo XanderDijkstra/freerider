@@ -38,7 +38,7 @@ export default function DemoLoginPage() {
         <RoleSection
           tone="primary"
           label="Plattform-admin"
-          description="Full oversikt — godkjenn utleiere, suspendér brukere, se alle annonser og forespørsler."
+          description="Full oversikt - godkjenn utleiere, suspendér brukere, se alle annonser og forespørsler."
         >
           {admin.map((u) => (
             <UserPickRow key={u.id} userId={u.id} title={u.name} subtitle={u.email} />

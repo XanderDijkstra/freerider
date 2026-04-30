@@ -9,9 +9,9 @@ biltur. Lågare kostnad for utleigar, gratis tur for sjåfør, lågare CO₂ for
 - **Framework:** Next.js 16 (App Router) + TypeScript
 - **Styling:** Tailwind v4 + shadcn-style components
 - **Fonts:** Inter (UI) + Fraunces (headings)
-- **Backend:** Supabase (planned — data layer is currently mock)
+- **Backend:** Supabase (planned - data layer is currently mock)
 - **Hosting:** Vercel
-- **Notifications:** Resend (email) + Twilio (SMS) — planned
+- **Notifications:** Resend (email) + Twilio (SMS) - planned
 
 ## Lokalt oppsett
 

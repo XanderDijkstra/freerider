@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Vilkår",
   description:
-    "Brukervilkår for FreeRider.no — sjåfører, utleiere og plattform.",
+    "Brukervilkår for FreeRider.no - sjåfører, utleiere og plattform.",
   alternates: { canonical: "/vilkar" },
 };
 

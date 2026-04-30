@@ -72,7 +72,7 @@ export default function AdminBrukerePage() {
                       </div>
                     </Td>
                     <Td>{ROLE_LABEL[u.role] ?? u.role}</Td>
-                    <Td>{company ? company.name : u.licenseNumber ?? "—"}</Td>
+                    <Td>{company ? company.name : u.licenseNumber ?? "-"}</Td>
                     <Td>{formatDate(u.createdAt)}</Td>
                     <Td>
                       <Badge tone={STATUS_TONE[status]}>

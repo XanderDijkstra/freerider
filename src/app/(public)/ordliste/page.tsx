@@ -8,7 +8,7 @@ import { glossaryEntries } from "@/data/glossaryEntries";
 import { absoluteUrl, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Ordliste — bilflytting og leiebil-termer",
+  title: "Ordliste - bilflytting og leiebil-termer",
   description:
     "Forklaringer av sentrale termer i bilflytting: relokering, einveisleie, flåtebalansering og flere.",
   alternates: { canonical: "/ordliste" },
@@ -26,7 +26,7 @@ export default function OrdlistePage() {
           Ordliste
         </h1>
         <p className="mt-3 text-[color:var(--muted)]">
-          Sentrale termer i bilflytting og leiebil — forklart kort og presist.
+          Sentrale termer i bilflytting og leiebil - forklart kort og presist.
         </p>
       </header>
 

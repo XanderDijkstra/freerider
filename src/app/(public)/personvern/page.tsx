@@ -32,7 +32,7 @@ export default function PersonvernPage() {
           <ul className="list-disc pl-5 space-y-1">
             <li>Konto-data: navn, e-post, telefon, førerkortnummer.</li>
             <li>Bruksdata: oppdrag du søker på, utleiere du følger, varsel-preferanser.</li>
-            <li>Tekniske data: IP-adresse, nettleser, plattform — for trygghet og diagnose.</li>
+            <li>Tekniske data: IP-adresse, nettleser, plattform - for trygghet og diagnose.</li>
           </ul>
 
           <h2 className="font-heading text-xl font-semibold">Hvordan vi bruker data</h2>

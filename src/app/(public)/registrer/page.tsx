@@ -8,7 +8,7 @@ import { Logo } from "@/components/Logo";
 export const metadata: Metadata = {
   title: "Registrer deg",
   description:
-    "Registrer en konto på FreeRider.no — som sjåfør eller bilutleier.",
+    "Registrer en konto på FreeRider.no - som sjåfør eller bilutleier.",
   alternates: { canonical: "/registrer" },
 };
 

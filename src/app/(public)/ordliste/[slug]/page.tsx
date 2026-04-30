@@ -28,7 +28,7 @@ export async function generateMetadata({
   const e = getGlossaryEntry(slug);
   if (!e) return { title: "Term ikke funnet" };
   return {
-    title: `${e.term} — ordliste`,
+    title: `${e.term} - ordliste`,
     description: e.short,
     alternates: { canonical: `/ordliste/${e.slug}` },
   };

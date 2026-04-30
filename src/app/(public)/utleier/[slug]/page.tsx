@@ -31,7 +31,7 @@ export async function generateMetadata({
   const c = getCompanyBySlug(slug);
   if (!c) return { title: "Utleier ikke funnet" };
   return {
-    title: `${c.name} — ledige relokeringsbiler`,
+    title: `${c.name} - ledige relokeringsbiler`,
     description: `Se alle ledige biler fra ${c.name} på FreeRider.no. Følg utleier og få varsel om nye biler.`,
     alternates: { canonical: `/utleier/${c.slug}` },
   };

@@ -14,7 +14,7 @@ Relokering er den viktigste use casen for FreeRider-modellen.`,
     slug: "einveisleie",
     term: "Einveisleie",
     short: "Bilutleie der bilen blir levert på en annen stasjon enn der den ble hentet.",
-    body: `Einveisleie er en kontraktstype der utleieren tillater at kunden leverer bilen på en annen stasjon. Det skaper fleksibilitet for kunden, men flåtebalanse-problemer for utleieren — siden bilen ikke automatisk kommer tilbake til startstasjonen.
+    body: `Einveisleie er en kontraktstype der utleieren tillater at kunden leverer bilen på en annen stasjon. Det skaper fleksibilitet for kunden, men flåtebalanse-problemer for utleieren - siden bilen ikke automatisk kommer tilbake til startstasjonen.
 
 Drop-off-gebyr blir ofte lagt på for å motivere bilen tilbake samme vei, eller for å dekke den senere relokeringskostnaden.`,
     related: ["relokering", "drop-off-gebyr", "flatebalansering"],
@@ -66,7 +66,7 @@ Bilene på FreeRider.no er alle del av kommersielle leiebilflåter.`,
     slug: "kilometergrense",
     term: "Kilometergrense",
     short: "Maksimalt antall km tillatt på relokeringsoppdraget.",
-    body: `Alle relokeringer har en øvre kilometergrense — typisk distanse pluss 10–15 % buffer for omvei. Kjører du forbi grensen, kan utleieren kreve en per-km-sats for hver ekstra kilometer.
+    body: `Alle relokeringer har en øvre kilometergrense - typisk distanse pluss 10–15 % buffer for omvei. Kjører du forbi grensen, kan utleieren kreve en per-km-sats for hver ekstra kilometer.
 
 Sjekk alltid kilometergrensen før du tar en omvei.`,
     related: ["relokering", "freerider"],

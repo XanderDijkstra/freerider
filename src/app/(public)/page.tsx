@@ -19,9 +19,9 @@ import { faqSchema } from "@/lib/seo";
 import { formatKg, formatDate } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "FreeRider.no — Kjør gratis. Flytt bilen. Spar CO₂.",
+  title: "FreeRider.no - Kjør gratis. Flytt bilen. Spar CO₂.",
   description:
-    "Norges marked for gratis bilflytting. Hertz, Avis, Sixt og flere trenger biler flyttet — du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
+    "Norges marked for gratis bilflytting. Hertz, Avis, Sixt og flere trenger biler flyttet - du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
   alternates: { canonical: "/" },
 };
 
@@ -306,7 +306,7 @@ function HowItWorks() {
   const steps = [
     {
       title: "Utleier publiserer",
-      body: "Bilutleieren legger ut en bil som må flyttes mellom to stasjoner — med dato, distanse og regler.",
+      body: "Bilutleieren legger ut en bil som må flyttes mellom to stasjoner - med dato, distanse og regler.",
     },
     {
       title: "Du søker",

@@ -160,9 +160,9 @@ saved_kg       = max(0, baseline_kg - vehicle_kg)`}
         <h2 className="font-heading text-2xl font-semibold">Kilder</h2>
         <ul className="mt-4 list-disc pl-5 space-y-2 text-[color:var(--muted)]">
           <li>Defra Greenhouse gas reporting: conversion factors 2024</li>
-          <li>IEA — Norway electricity carbon intensity (2024)</li>
-          <li>EEA — emissions from passenger transport modes</li>
-          <li>Statens vegvesen — kjøretøyregister-statistikk</li>
+          <li>IEA - Norway electricity carbon intensity (2024)</li>
+          <li>EEA - emissions from passenger transport modes</li>
+          <li>Statens vegvesen - kjøretøyregister-statistikk</li>
         </ul>
         <p className="mt-3 text-sm text-[color:var(--muted)]">
           Kilder og koeffisienter blir revidert minimum én gang i året, og
@@ -185,7 +185,7 @@ saved_kg       = max(0, baseline_kg - vehicle_kg)`}
         <Card className="p-8 grid md:grid-cols-3 gap-6 items-center">
           <div className="md:col-span-2">
             <h2 className="font-heading text-2xl font-semibold">
-              Velg en elbil — størst sparingseffekt.
+              Velg en elbil - størst sparingseffekt.
             </h2>
             <p className="mt-2 text-[color:var(--muted)]">
               Elbiler genererer ca. 1/7 av utslippet til en bensin-SUV per km.

@@ -1,16 +1,16 @@
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+This version has breaking changes - APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
-# Branching policy — push to `main`
+# Branching policy - push to `main`
 
 Owner directive: **all changes go to `main`**. Vercel's production branch is
 `main`, so anything else won't deploy. Do not push to feature branches unless
 the user explicitly asks for a PR-style review flow on a specific change.
 
-# FreeRider.no — codebase orientation
+# FreeRider.no - codebase orientation
 
 Norwegian marketplace where rental companies (Hertz, Avis, Sixt, Budget …) post
 relocation listings and private drivers claim them. Three roles: driver,
@@ -67,4 +67,4 @@ src/
 
 The data layer in `src/data/*` is mock. Swap with Supabase queries when wiring auth.
 The CO₂ formula in `src/lib/co2.ts` uses placeholder factors documented on `/miljo`
-— update before launch.
+- update before launch.

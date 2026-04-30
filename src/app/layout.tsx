@@ -19,11 +19,11 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL("https://freerider.no"),
   title: {
-    default: "FreeRider.no — Kjør gratis. Flytt bilen. Spar CO₂.",
+    default: "FreeRider.no - Kjør gratis. Flytt bilen. Spar CO₂.",
     template: "%s | FreeRider.no",
   },
   description:
-    "Norges marked for gratis bilflytting. Hertz, Avis, Sixt og flere trenger biler flyttet — du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
+    "Norges marked for gratis bilflytting. Hertz, Avis, Sixt og flere trenger biler flyttet - du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
   applicationName: "FreeRider.no",
   authors: [{ name: "FreeRider AS" }],
   alternates: { canonical: "/" },

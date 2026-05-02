@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
-import { Button } from "@/components/Button";
+import { Button, LinkButton } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
@@ -27,6 +27,17 @@ export default async function RegistrerPage({
       <div className="text-center">
         <Logo />
       </div>
+      <Card className="mt-6 p-5 bg-[color:var(--accent)]/30 border-[color:var(--accent)]">
+        <p className="text-sm font-medium">Demo-modus</p>
+        <p className="mt-1 text-xs text-[color:var(--muted)]">
+          Registrering blir aktivert når Supabase Auth kobles til. Bruk
+          demo-innloggingen for å teste rollene nå.
+        </p>
+        <LinkButton href="/demo-login" variant="primary" size="sm" className="mt-3">
+          Gå til demo-innlogging
+        </LinkButton>
+      </Card>
+
       <Card className="mt-6 p-6 md:p-8">
         <h1 className="font-heading text-2xl font-semibold text-center">
           Registrer deg
@@ -104,9 +115,12 @@ export default async function RegistrerPage({
               .
             </span>
           </label>
-          <Button className="w-full" size="lg" type="submit">
+          <Button className="w-full" size="lg" type="submit" disabled>
             Lag konto
           </Button>
+          <p className="text-xs text-center text-[color:var(--muted)]">
+            Aktiveres når Supabase Auth er koblet til.
+          </p>
         </form>
         <p className="mt-6 text-center text-sm text-[color:var(--muted)]">
           Allerede konto?{" "}

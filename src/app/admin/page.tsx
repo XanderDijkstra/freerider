@@ -5,9 +5,8 @@ import { Badge } from "@/components/Badge";
 import { LinkButton } from "@/components/Button";
 import { companies } from "@/data/companies";
 import { demoUsers } from "@/data/users";
-import { publishedListings } from "@/data/listings";
 import { getVehicleById } from "@/data/vehicles";
-import { allCompanyStatuses } from "@/data/store";
+import { allCompanyStatuses, publishedListingsLive } from "@/data/store";
 import { totalCo2SavedKg } from "@/lib/co2";
 import { formatKg } from "@/lib/format";
 
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdminHome() {
-  const list = publishedListings();
+  const list = publishedListingsLive();
   const totalSaved = totalCo2SavedKg(
     list.map((l) => {
       const v = getVehicleById(l.vehicleId)!;

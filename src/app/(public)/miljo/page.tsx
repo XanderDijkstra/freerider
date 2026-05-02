@@ -8,7 +8,7 @@ import { Badge } from "@/components/Badge";
 import { LinkButton } from "@/components/Button";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { JsonLd } from "@/components/JsonLd";
-import { publishedListings } from "@/data/listings";
+import { publishedListingsLive } from "@/data/store";
 import { getVehicleById } from "@/data/vehicles";
 import { totalCo2SavedKg } from "@/lib/co2";
 import { formatKg } from "@/lib/format";
@@ -56,7 +56,7 @@ const FACTORS = [
 
 export default function MiljoPage() {
   const totalSavedKg = totalCo2SavedKg(
-    publishedListings().map((l) => {
+    publishedListingsLive().map((l) => {
       const v = getVehicleById(l.vehicleId)!;
       return { distanceKm: l.distanceKm, fuelType: v.fuelType };
     }),

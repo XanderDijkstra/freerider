@@ -5,11 +5,11 @@ import { Container } from "@/components/Container";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
-import { LinkButton } from "@/components/Button";
 import { ListingCard } from "@/components/ListingCard";
 import { JsonLd } from "@/components/JsonLd";
+import { FollowButton } from "@/components/FollowButton";
 import { companies, getCompanyBySlug } from "@/data/companies";
-import { listingsByCompany } from "@/data/listings";
+import { listingsForCompany } from "@/data/store";
 import {
   absoluteUrl,
   breadcrumbSchema,
@@ -46,7 +46,7 @@ export default async function CompanyPage({
   const company = getCompanyBySlug(slug);
   if (!company) notFound();
 
-  const list = listingsByCompany(company.id);
+  const list = listingsForCompany(company.id);
   const totalSaved = totalCo2SavedKg(
     list.map((l) => {
       const v = getVehicleById(l.vehicleId)!;
@@ -85,9 +85,7 @@ export default async function CompanyPage({
             <Badge tone="eco">{company.totalRelocations} relokeringer utført</Badge>
           </div>
         </div>
-        <LinkButton href="/logg-inn" variant="secondary">
-          Følg {company.name}
-        </LinkButton>
+        <FollowButton companyId={company.id} companyName={company.name} />
       </header>
 
       <div className="mt-8 grid md:grid-cols-3 gap-4">

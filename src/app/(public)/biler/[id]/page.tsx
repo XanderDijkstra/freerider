@@ -5,7 +5,6 @@ import {
   ArrowRight,
   Calendar,
   Car,
-  CheckCircle2,
   Clock,
   CreditCard,
   Fuel,
@@ -19,16 +18,13 @@ import { Container } from "@/components/Container";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
-import { LinkButton } from "@/components/Button";
 import { EcoBadge } from "@/components/EcoBadge";
 import { VehicleImage } from "@/components/VehicleImage";
 import { ListingCard } from "@/components/ListingCard";
 import { JsonLd } from "@/components/JsonLd";
-import {
-  getListingById,
-  listings,
-  relatedListings,
-} from "@/data/listings";
+import { ApplyCard } from "@/components/ApplyCard";
+import { listings } from "@/data/listings";
+import { getListing, relatedListingsLive } from "@/data/store";
 import { getVehicleById } from "@/data/vehicles";
 import { getCompanyById } from "@/data/companies";
 import { computeCo2Saved } from "@/lib/co2";
@@ -55,7 +51,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const listing = getListingById(id);
+  const listing = getListing(id);
   if (!listing) return { title: "Bil ikke funnet" };
   const vehicle = getVehicleById(listing.vehicleId);
   if (!vehicle) return { title: "Bil ikke funnet" };
@@ -76,7 +72,7 @@ export default async function ListingDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const listing = getListingById(id);
+  const listing = getListing(id);
   if (!listing) notFound();
   const vehicle = getVehicleById(listing.vehicleId);
   const company = getCompanyById(listing.companyId);
@@ -87,7 +83,7 @@ export default async function ListingDetailPage({
     fuelType: vehicle.fuelType,
   });
 
-  const related = relatedListings(listing, 4);
+  const related = relatedListingsLive(listing, 4);
 
   const compensationLabel = (() => {
     switch (listing.compensation.kind) {
@@ -313,38 +309,7 @@ export default async function ListingDetailPage({
         </div>
 
         <aside className="lg:sticky lg:top-20 self-start space-y-4">
-          <Card className="p-5">
-            <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-              Kompensasjon
-            </p>
-            <p className="mt-1 font-heading text-2xl font-semibold text-[color:var(--primary)]">
-              {compensationLabel}
-            </p>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li className="flex gap-2 items-start">
-                <CheckCircle2 className="h-4 w-4 text-[color:var(--success)] mt-0.5" aria-hidden />
-                Full forsikring under hele turen
-              </li>
-              <li className="flex gap-2 items-start">
-                <CheckCircle2 className="h-4 w-4 text-[color:var(--success)] mt-0.5" aria-hidden />
-                Gratis kansellering inntil 24 t før
-              </li>
-              <li className="flex gap-2 items-start">
-                <CheckCircle2 className="h-4 w-4 text-[color:var(--success)] mt-0.5" aria-hidden />
-                Ingen skjulte gebyr
-              </li>
-            </ul>
-            <LinkButton
-              href={`/logg-inn?next=/biler/${listing.id}`}
-              size="lg"
-              className="w-full mt-5"
-            >
-              Søk om denne bilen
-            </LinkButton>
-            <p className="mt-2 text-xs text-[color:var(--muted)] text-center">
-              Krever konto. Tar 1 minutt å registrere.
-            </p>
-          </Card>
+          <ApplyCard listing={listing} compensationLabel={compensationLabel} />
         </aside>
       </div>
 

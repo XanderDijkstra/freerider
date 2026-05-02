@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Card } from "@/components/Card";
 import { LinkButton } from "@/components/Button";
 import { SortDropdown } from "./SortDropdown";
-import { publishedListings } from "@/data/listings";
+import { publishedListingsLive } from "@/data/store";
 import { getVehicleById } from "@/data/vehicles";
 import { breadcrumbSchema, absoluteUrl } from "@/lib/seo";
 import type { FuelType } from "@/lib/co2";
@@ -34,7 +34,7 @@ export default async function BilerPage({
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
-  const all = publishedListings();
+  const all = publishedListingsLive();
 
   let results = all.filter((l) => {
     if (params.from && l.fromCity.toLowerCase() !== params.from.toLowerCase()) {

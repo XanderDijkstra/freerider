@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
+import { getSession } from "@/lib/session";
+import { getCompanyById } from "@/data/companies";
+import { getCompanyProfile } from "@/data/store";
+import { saveCompanyProfile } from "@/lib/auth-actions";
 
 export const metadata: Metadata = {
   title: "Profil",
@@ -10,7 +14,17 @@ export const metadata: Metadata = {
 const inputClass =
   "block w-full h-11 px-3 rounded-lg border border-[color:var(--border)] bg-[color:var(--surface)] text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--secondary)]";
 
-export default function ProfilPage() {
+export default async function ProfilPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ saved?: string }>;
+}) {
+  const session = await getSession();
+  const companyId = session?.companyId ?? "c-hertz";
+  const company = getCompanyById(companyId);
+  const profile = getCompanyProfile(companyId);
+  const { saved } = await searchParams;
+
   return (
     <div className="space-y-6 max-w-2xl">
       <header>
@@ -21,21 +35,53 @@ export default function ProfilPage() {
           Slik ser FreeRider-siden din ut for sjåfører.
         </p>
       </header>
+
+      {saved === "1" ? (
+        <Card className="p-4 bg-[color:var(--success)]/10 border-[color:var(--success)]/30 text-sm">
+          Profilen er lagret.
+        </Card>
+      ) : null}
+
       <Card className="p-6">
-        <form className="space-y-4">
+        <form action={saveCompanyProfile} className="space-y-4">
           <Field label="Firmanavn">
-            <input className={inputClass} defaultValue="Hertz Norge" />
+            <input
+              className={`${inputClass} bg-[color:var(--background)] cursor-not-allowed`}
+              defaultValue={company?.name ?? ""}
+              disabled
+            />
+            <p className="text-xs text-[color:var(--muted)] mt-1">
+              Firmanavn endres av plattform-admin.
+            </p>
           </Field>
           <Field label="Beskrivelse">
-            <textarea rows={4} className={`${inputClass} h-auto py-2`} defaultValue="Hertz har 80 stasjoner i Norge ..." />
+            <textarea
+              name="description"
+              rows={4}
+              className={`${inputClass} h-auto py-2`}
+              defaultValue={profile?.description ?? company?.description ?? ""}
+              required
+            />
           </Field>
           <Field label="Kontakt-e-post">
-            <input type="email" className={inputClass} defaultValue="kontakt@hertz.no" />
+            <input
+              type="email"
+              name="contactEmail"
+              className={inputClass}
+              defaultValue={profile?.contactEmail ?? ""}
+              required
+            />
           </Field>
           <Field label="Telefon">
-            <input className={inputClass} defaultValue="+47 21 00 00 00" />
+            <input
+              type="tel"
+              name="contactPhone"
+              className={inputClass}
+              defaultValue={profile?.contactPhone ?? ""}
+              required
+            />
           </Field>
-          <Button>Lagre profil</Button>
+          <Button type="submit">Lagre profil</Button>
         </form>
       </Card>
     </div>

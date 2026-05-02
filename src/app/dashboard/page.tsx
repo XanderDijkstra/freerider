@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MapPin, X } from "lucide-react";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
 import { Button, LinkButton } from "@/components/Button";
 import { ListingCard } from "@/components/ListingCard";
-import { publishedListings } from "@/data/listings";
+import {
+  getDriverFavoriteLocations,
+  getFollowedCompanyIds,
+  getRequestsForDriver,
+  publishedListingsLive,
+} from "@/data/store";
+import { computeCo2Saved } from "@/lib/co2";
 import { formatKg } from "@/lib/format";
 import { getSession } from "@/lib/session";
-import { getDriverFavoriteLocations } from "@/data/store";
+import { getVehicleById } from "@/data/vehicles";
+import { getCompanyById } from "@/data/companies";
 import {
   addFavoriteLocation,
   removeFavoriteLocation,
+  unfollowCompanyAction,
 } from "@/lib/auth-actions";
+import { listingsByCompany } from "@/data/listings";
 
 export const metadata: Metadata = {
   title: "Sjåførpanel",
@@ -23,8 +33,10 @@ export default async function DriverDashboard() {
   const userId = session?.userId ?? "";
   const firstName = session?.name.split(" ")[0] ?? "der";
 
-  const all = publishedListings();
+  const all = publishedListingsLive();
   const favorites = userId ? getDriverFavoriteLocations(userId) : [];
+  const requests = getRequestsForDriver(userId);
+  const followedIds = getFollowedCompanyIds(userId);
 
   const cityOptions = Array.from(
     new Set(all.flatMap((l) => [l.fromCity, l.toCity])),
@@ -38,6 +50,26 @@ export default async function DriverDashboard() {
           (l) => favorites.includes(l.fromCity) || favorites.includes(l.toCity),
         )
       : [];
+
+  const pendingCount = requests.filter((r) => r.status === "pending").length;
+  const approvedCount = requests.filter((r) => r.status === "approved").length;
+
+  // CO2 contribution = sum from approved requests
+  const co2SavedKg = requests
+    .filter((r) => r.status === "approved")
+    .reduce((sum, r) => {
+      const listing = all.find((l) => l.id === r.listingId);
+      if (!listing) return sum;
+      const v = getVehicleById(listing.vehicleId);
+      if (!v) return sum;
+      return (
+        sum +
+        computeCo2Saved({
+          distanceKm: listing.distanceKm,
+          fuelType: v.fuelType,
+        }).savedKg
+      );
+    }, 0);
 
   return (
     <div className="space-y-8">
@@ -56,18 +88,22 @@ export default async function DriverDashboard() {
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
             Aktive forespørsler
           </p>
-          <p className="mt-1 font-heading text-2xl font-semibold">2</p>
+          <p className="mt-1 font-heading text-2xl font-semibold">
+            {pendingCount + approvedCount}
+          </p>
           <p className="text-xs text-[color:var(--muted)] mt-1">
-            1 godkjent · 1 avventer
+            {approvedCount} godkjent · {pendingCount} avventer
           </p>
         </Card>
         <Card className="p-5">
           <p className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
-            Kommende oppdrag
+            Følgde utleiere
           </p>
-          <p className="mt-1 font-heading text-2xl font-semibold">1</p>
+          <p className="mt-1 font-heading text-2xl font-semibold">
+            {followedIds.length}
+          </p>
           <p className="text-xs text-[color:var(--muted)] mt-1">
-            Oslo → Bergen, 3. mai
+            Få varsel når de publiserer nytt
           </p>
         </Card>
         <Card className="p-5">
@@ -75,7 +111,7 @@ export default async function DriverDashboard() {
             CO₂ spart med deg
           </p>
           <p className="mt-1 font-heading text-2xl font-semibold text-[color:var(--primary)]">
-            {formatKg(420)}
+            {formatKg(co2SavedKg)}
           </p>
         </Card>
       </div>
@@ -196,16 +232,48 @@ export default async function DriverDashboard() {
       </section>
 
       <section>
-        <h2 className="font-heading text-xl font-semibold">Fulgte utleiere</h2>
-        <Card className="mt-4 p-5 flex items-center justify-between flex-wrap gap-3">
-          <div>
-            <p className="font-medium">Hertz Norge</p>
-            <p className="text-sm text-[color:var(--muted)]">
-              3 nye annonser i uka
-            </p>
+        <h2 className="font-heading text-xl font-semibold">Følgde utleiere</h2>
+        {followedIds.length === 0 ? (
+          <Card className="mt-4 p-5 text-sm text-[color:var(--muted)]">
+            Du følger ingen utleiere enda. Gå til{" "}
+            <Link href="/utleiere" className="text-[color:var(--primary)] underline">
+              utleier-oversikten
+            </Link>{" "}
+            og klikk &quot;Følg&quot; for å få varsel ved nye annonser.
+          </Card>
+        ) : (
+          <div className="mt-4 space-y-3">
+            {followedIds.map((id) => {
+              const c = getCompanyById(id);
+              if (!c) return null;
+              const activeCount = listingsByCompany(id).length;
+              return (
+                <Card
+                  key={id}
+                  className="p-5 flex items-center justify-between flex-wrap gap-3"
+                >
+                  <div>
+                    <Link
+                      href={`/utleier/${c.slug}`}
+                      className="font-medium hover:text-[color:var(--primary)]"
+                    >
+                      {c.name}
+                    </Link>
+                    <p className="text-sm text-[color:var(--muted)]">
+                      {activeCount} aktive annonser
+                    </p>
+                  </div>
+                  <form action={unfollowCompanyAction}>
+                    <input type="hidden" name="companyId" value={id} />
+                    <Button variant="secondary" size="sm" type="submit">
+                      Slutt å følge
+                    </Button>
+                  </form>
+                </Card>
+              );
+            })}
           </div>
-          <Badge tone="success">Følger</Badge>
-        </Card>
+        )}
       </section>
     </div>
   );

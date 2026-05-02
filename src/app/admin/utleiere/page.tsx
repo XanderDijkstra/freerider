@@ -4,7 +4,7 @@ import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
 import { companies } from "@/data/companies";
-import { listingsByCompany } from "@/data/listings";
+import { listingsForCompany } from "@/data/store";
 import { allCompanyStatuses, type CompanyStatus } from "@/data/store";
 import {
   approveCompany,
@@ -60,7 +60,7 @@ export default function AdminUtleierePage() {
             <tbody className="divide-y divide-[color:var(--border)]">
               {companies.map((c) => {
                 const status = statuses.find((s) => s.id === c.id)!.status;
-                const activeListings = listingsByCompany(c.id).length;
+                const activeListings = listingsForCompany(c.id).length;
                 return (
                   <tr key={c.id}>
                     <Td>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
 import { LinkButton } from "@/components/Button";
-import { vehicles } from "@/data/vehicles";
+import { vehiclesForCompany } from "@/data/store";
 import { getSession } from "@/lib/session";
 
 export const metadata: Metadata = {
@@ -10,10 +10,16 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-export default async function FlateePage() {
+export default async function FlateePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ added?: string }>;
+}) {
   const session = await getSession();
   const companyId = session?.companyId ?? "c-hertz";
-  const myVehicles = vehicles.filter((v) => v.companyId === companyId);
+  const myVehicles = vehiclesForCompany(companyId);
+  const { added } = await searchParams;
+
   return (
     <div className="space-y-6">
       <header className="flex items-end justify-between flex-wrap gap-3">
@@ -22,51 +28,57 @@ export default async function FlateePage() {
             Flåte
           </h1>
           <p className="mt-1 text-[color:var(--muted)]">
-            {myVehicles.length} biler registrerte.
+            {myVehicles.length} biler registrert.
           </p>
         </div>
         <LinkButton href="/utleier-admin/fl%C3%A5te/ny">Legg til bil</LinkButton>
       </header>
 
-      <Card className="overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-[color:var(--background)]">
-              <tr className="text-left">
-                <Th>Skilt</Th>
-                <Th>Modell</Th>
-                <Th>År</Th>
-                <Th>Drivstoff</Th>
-                <Th>Status</Th>
-                <Th></Th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[color:var(--border)]">
-              {myVehicles.map((v) => (
-                <tr key={v.id}>
-                  <Td>{v.plate}</Td>
-                  <Td>
-                    {v.make} {v.model}
-                  </Td>
-                  <Td>{v.year}</Td>
-                  <Td>{labelForFuel(v.fuelType)}</Td>
-                  <Td>
-                    <Badge tone="success">Ledig</Badge>
-                  </Td>
-                  <Td className="text-right">
-                    <button
-                      type="button"
-                      className="text-[color:var(--primary)] hover:underline text-sm"
-                    >
-                      Endre
-                    </button>
-                  </Td>
+      {added === "1" ? (
+        <Card className="p-4 bg-[color:var(--success)]/10 border-[color:var(--success)]/30 text-sm">
+          Bilen er lagt til flåten.
+        </Card>
+      ) : null}
+
+      {myVehicles.length === 0 ? (
+        <Card className="p-8 text-center text-[color:var(--muted)] space-y-3">
+          <p>Ingen biler i flåten enda.</p>
+          <LinkButton href="/utleier-admin/fl%C3%A5te/ny" variant="secondary">
+            Legg til første bil
+          </LinkButton>
+        </Card>
+      ) : (
+        <Card className="overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-[color:var(--background)]">
+                <tr className="text-left">
+                  <Th>Skilt</Th>
+                  <Th>Modell</Th>
+                  <Th>År</Th>
+                  <Th>Drivstoff</Th>
+                  <Th>Status</Th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </Card>
+              </thead>
+              <tbody className="divide-y divide-[color:var(--border)]">
+                {myVehicles.map((v) => (
+                  <tr key={v.id}>
+                    <Td>{v.plate}</Td>
+                    <Td>
+                      {v.make} {v.model}
+                    </Td>
+                    <Td>{v.year}</Td>
+                    <Td>{labelForFuel(v.fuelType)}</Td>
+                    <Td>
+                      <Badge tone="success">Ledig</Badge>
+                    </Td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      )}
     </div>
   );
 }

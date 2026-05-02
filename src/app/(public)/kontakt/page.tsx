@@ -14,7 +14,13 @@ export const metadata: Metadata = {
 const inputClass =
   "block w-full h-11 px-3 rounded-lg border border-[color:var(--border)] bg-[color:var(--surface)] text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--secondary)]";
 
-export default function KontaktPage() {
+export default async function KontaktPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ sent?: string }>;
+}) {
+  const { sent } = await searchParams;
+
   return (
     <Container className="py-6 md:py-10">
       <Breadcrumbs items={[{ label: "Kontakt" }]} />
@@ -28,9 +34,16 @@ export default function KontaktPage() {
         </p>
       </header>
 
+      {sent === "1" ? (
+        <Card className="mt-6 p-4 bg-[color:var(--success)]/10 border-[color:var(--success)]/30 text-sm">
+          Takk! Vi har mottatt meldingen din og svarer så snart vi kan.
+        </Card>
+      ) : null}
+
       <div className="mt-8 grid md:grid-cols-[1fr_320px] gap-8">
         <Card className="p-6">
-          <form className="space-y-4">
+          <form className="space-y-4" action="/kontakt" method="get">
+            <input type="hidden" name="sent" value="1" />
             <Field label="Navn" htmlFor="name">
               <input id="name" name="name" className={inputClass} required />
             </Field>
@@ -62,7 +75,8 @@ export default function KontaktPage() {
             </Field>
             <Button type="submit">Send melding</Button>
             <p className="text-xs text-[color:var(--muted)]">
-              Skjemaet blir spam-beskyttet med hCaptcha før produksjon.
+              Skjemaet blir koblet til Resend i produksjon. I demo-modus
+              registreres ingen meldinger.
             </p>
           </form>
         </Card>

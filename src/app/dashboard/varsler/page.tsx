@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
+import { getNotificationPrefs } from "@/data/store";
+import { saveNotificationPrefs } from "@/lib/auth-actions";
+import { getSession } from "@/lib/session";
 
 export const metadata: Metadata = {
   title: "Varselinnstillinger",
@@ -25,7 +28,15 @@ const PREFS = [
   },
 ];
 
-export default function VarslerPage() {
+export default async function VarslerPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ saved?: string }>;
+}) {
+  const session = await getSession();
+  const prefs = session ? getNotificationPrefs(session.userId) : {};
+  const { saved } = await searchParams;
+
   return (
     <div className="space-y-6">
       <header>
@@ -36,30 +47,50 @@ export default function VarslerPage() {
           Velg hvilke varsler du vil ha - og på hvilken kanal.
         </p>
       </header>
-      <Card className="divide-y divide-[color:var(--border)]">
-        {PREFS.map((p) => (
-          <div
-            key={p.key}
-            className="p-5 flex items-start justify-between flex-wrap gap-4"
-          >
-            <div className="max-w-md">
-              <h2 className="font-medium">{p.title}</h2>
-              <p className="text-sm text-[color:var(--muted)] mt-1">{p.desc}</p>
-            </div>
-            <div className="flex gap-3 text-sm">
-              <label className="flex items-center gap-2">
-                <input type="checkbox" defaultChecked />
-                E-post
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="checkbox" />
-                SMS
-              </label>
-            </div>
-          </div>
-        ))}
-      </Card>
-      <Button>Lagre innstillingar</Button>
+
+      {saved === "1" ? (
+        <Card className="p-4 bg-[color:var(--success)]/10 border-[color:var(--success)]/30 text-sm">
+          Innstillingene er lagret.
+        </Card>
+      ) : null}
+
+      <form action={saveNotificationPrefs} className="space-y-6">
+        <Card className="divide-y divide-[color:var(--border)]">
+          {PREFS.map((p) => {
+            const current = prefs[p.key] ?? { email: false, sms: false };
+            return (
+              <div
+                key={p.key}
+                className="p-5 flex items-start justify-between flex-wrap gap-4"
+              >
+                <div className="max-w-md">
+                  <h2 className="font-medium">{p.title}</h2>
+                  <p className="text-sm text-[color:var(--muted)] mt-1">{p.desc}</p>
+                </div>
+                <div className="flex gap-3 text-sm">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name={`${p.key}_email`}
+                      defaultChecked={current.email}
+                    />
+                    E-post
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name={`${p.key}_sms`}
+                      defaultChecked={current.sms}
+                    />
+                    SMS
+                  </label>
+                </div>
+              </div>
+            );
+          })}
+        </Card>
+        <Button type="submit">Lagre innstillinger</Button>
+      </form>
     </div>
   );
 }

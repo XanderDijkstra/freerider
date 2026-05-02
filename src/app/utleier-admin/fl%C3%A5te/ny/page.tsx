@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Card } from "@/components/Card";
-import { Button } from "@/components/Button";
+import { Button, LinkButton } from "@/components/Button";
+import { addVehicleAction } from "@/lib/auth-actions";
 
 export const metadata: Metadata = {
   title: "Legg til bil",
@@ -24,17 +25,11 @@ export default function LeggTilBilPage() {
       </header>
 
       <Card className="p-6">
-        <form className="space-y-6">
+        <form action={addVehicleAction} className="space-y-6">
           <Section title="Identifikasjon">
             <Grid>
               <Field label="Skilt" id="plate">
                 <input id="plate" name="plate" className={inputClass} required />
-              </Field>
-              <Field label="Internt ID" id="internal">
-                <input id="internal" name="internal" className={inputClass} />
-              </Field>
-              <Field label="VIN (valgfritt)" id="vin">
-                <input id="vin" name="vin" className={inputClass} />
               </Field>
             </Grid>
           </Section>
@@ -48,7 +43,16 @@ export default function LeggTilBilPage() {
                 <input id="model" name="model" className={inputClass} required />
               </Field>
               <Field label="Årsmodell" id="year">
-                <input id="year" name="year" type="number" className={inputClass} required />
+                <input
+                  id="year"
+                  name="year"
+                  type="number"
+                  min={1990}
+                  max={2030}
+                  defaultValue={2024}
+                  className={inputClass}
+                  required
+                />
               </Field>
               <Field label="Drivstoff" id="fuel">
                 <select id="fuel" name="fuel" className={inputClass}>
@@ -65,7 +69,15 @@ export default function LeggTilBilPage() {
                 </select>
               </Field>
               <Field label="Sete" id="seats">
-                <input id="seats" name="seats" type="number" className={inputClass} />
+                <input
+                  id="seats"
+                  name="seats"
+                  type="number"
+                  min={2}
+                  max={9}
+                  defaultValue={5}
+                  className={inputClass}
+                />
               </Field>
             </Grid>
           </Section>
@@ -83,17 +95,14 @@ export default function LeggTilBilPage() {
             </div>
           </Section>
 
-          <Section title="Foto">
-            <div className="border-2 border-dashed border-[color:var(--border)] rounded-xl p-8 text-center text-[color:var(--muted)]">
-              Drag-og-slepp opptil 8 foto. Foto blir auto-resized.
-            </div>
-          </Section>
-
           <div className="flex gap-3 pt-2">
             <Button type="submit">Publiser bil</Button>
-            <Button type="button" variant="secondary">
-              Lagre utkast
-            </Button>
+            <LinkButton
+              href="/utleier-admin/fl%C3%A5te"
+              variant="secondary"
+            >
+              Avbryt
+            </LinkButton>
           </div>
         </form>
       </Card>

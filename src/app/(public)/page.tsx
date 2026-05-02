@@ -10,7 +10,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { JsonLd } from "@/components/JsonLd";
 import { Badge } from "@/components/Badge";
-import { publishedListings } from "@/data/listings";
+import { publishedListingsLive } from "@/data/store";
 import { companies } from "@/data/companies";
 import { getVehicleById } from "@/data/vehicles";
 import { totalCo2SavedKg } from "@/lib/co2";
@@ -49,9 +49,9 @@ const FAQ = [
 ];
 
 export default function HomePage() {
-  const featured = publishedListings().slice(0, 6);
+  const featured = publishedListingsLive().slice(0, 6);
   const totalSavedKg = totalCo2SavedKg(
-    publishedListings().map((l) => {
+    publishedListingsLive().map((l) => {
       const v = getVehicleById(l.vehicleId)!;
       return { distanceKm: l.distanceKm, fuelType: v.fuelType };
     }),

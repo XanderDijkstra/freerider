@@ -1,8 +1,18 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
+import { PreferredSourceButton } from "./PreferredSourceButton";
 
 const FOOTER_LINKS = [
+  {
+    title: "Reis gratis",
+    items: [
+      { href: "/gratis-leiebil", label: "Gratis leiebil" },
+      { href: "/kjore-bil-gratis", label: "Kjøre bil gratis" },
+      { href: "/enveis-leiebil", label: "Enveis leiebil" },
+      { href: "/jobb-flytte-biler", label: "Jobb med å flytte biler" },
+    ],
+  },
   {
     title: "Marked",
     items: [
@@ -43,7 +53,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-[color:var(--border)] bg-[color:var(--surface)]">
       <Container className="py-10 md:py-12">
-        <div className="grid gap-10 md:grid-cols-5">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7">
           <div className="md:col-span-2 space-y-3">
             <Logo />
             <p className="text-sm text-[color:var(--muted)] max-w-sm">
@@ -51,7 +61,7 @@ export function SiteFooter() {
               sjåfører som vil reise gratis. Lavere kostnad, lavere CO₂.
             </p>
             <p className="text-xs text-[color:var(--muted)]">
-              FreeRider AS · Org.nr. 000 000 000 · Oslo, Norge
+              FreeRider.no drives av FX MEDIA AS · Org.nr. 930 724 548
             </p>
           </div>
           {FOOTER_LINKS.map((group) => (
@@ -75,8 +85,11 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="mt-10 pt-6 border-t border-[color:var(--border)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[color:var(--muted)]">
-          <p>© {new Date().getFullYear()} FreeRider AS. Alle rettigheter.</p>
-          <p>Laget i Norge.</p>
+          <p>© {new Date().getFullYear()} FX MEDIA AS. Alle rettigheter.</p>
+          <div className="flex items-center gap-4">
+            <PreferredSourceButton />
+            <p>Laget i Norge.</p>
+          </div>
         </div>
       </Container>
     </footer>

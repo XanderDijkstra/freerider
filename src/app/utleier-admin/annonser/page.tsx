@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default async function AnnonserPage() {
   const session = await getSession();
-  const companyId = session?.companyId ?? "c-hertz";
+  const companyId = session?.companyId ?? "c-fjordlys";
   const list = listingsForCompany(companyId);
 
   return (

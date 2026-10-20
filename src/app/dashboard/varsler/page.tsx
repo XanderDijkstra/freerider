@@ -14,7 +14,7 @@ const PREFS = [
   {
     key: "newListings",
     title: "Nye annonser fra utleiere jeg følger",
-    desc: "Få varsel når Hertz, Avis eller andre du følger publiserer et oppdrag.",
+    desc: "Få varsel når utleiere du følger publiserer et oppdrag.",
   },
   {
     key: "statusChange",

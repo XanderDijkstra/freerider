@@ -81,11 +81,11 @@ export default async function KontaktPage({
           </form>
         </Card>
         <Card className="p-6 self-start">
-          <h2 className="font-medium">FreeRider AS</h2>
+          <h2 className="font-medium">FX MEDIA AS</h2>
           <address className="mt-2 not-italic text-sm text-[color:var(--muted)] space-y-1">
-            <p>Storgata 1</p>
-            <p>0155 Oslo</p>
-            <p>Org.nr 000 000 000</p>
+            <p>Ringlevegen 4</p>
+            <p>7655 Verdal</p>
+            <p>Org.nr 930 724 548</p>
           </address>
           <div className="mt-4 text-sm">
             <p>
@@ -96,7 +96,6 @@ export default async function KontaktPage({
                 hei@freerider.no
               </a>
             </p>
-            <p className="text-[color:var(--muted)] mt-1">+47 21 00 00 00</p>
           </div>
         </Card>
       </div>

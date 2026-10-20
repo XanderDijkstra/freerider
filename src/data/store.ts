@@ -64,7 +64,7 @@ function init(): Store {
     store.companyStatus.set(c.id, idx < 4 ? "approved" : "pending");
     store.companyProfiles.set(c.id, {
       description: c.description,
-      contactEmail: `kontakt@${c.slug}.no`,
+      contactEmail: `kontakt@${c.slug}.example`,
       contactPhone: "+47 21 00 00 00",
     });
   }
@@ -116,8 +116,8 @@ function init(): Store {
     },
   );
 
-  store.follows.add("u-driver-ida|c-hertz");
-  store.follows.add("u-driver-henrik|c-sixt");
+  store.follows.add("u-driver-ida|c-fjordlys");
+  store.follows.add("u-driver-henrik|c-polar");
 
   return store;
 }
@@ -336,7 +336,7 @@ export function getCompanyWithProfile(c: Company): Company & {
   return {
     ...c,
     description: profile?.description ?? c.description,
-    contactEmail: profile?.contactEmail ?? `kontakt@${c.slug}.no`,
+    contactEmail: profile?.contactEmail ?? `kontakt@${c.slug}.example`,
     contactPhone: profile?.contactPhone ?? "+47 21 00 00 00",
   };
 }

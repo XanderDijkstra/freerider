@@ -1,3 +1,4 @@
+import { ExampleNotice } from "@/components/ExampleNotice";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -34,6 +35,8 @@ export async function generateMetadata({
     title: `${c.name} - ledige relokeringsbiler`,
     description: `Se alle ledige biler fra ${c.name} på FreeRider.no. Følg utleier og få varsel om nye biler.`,
     alternates: { canonical: `/utleier/${c.slug}` },
+    // Example companies until real rental companies are onboarded.
+    robots: { index: false, follow: true },
   };
 }
 
@@ -56,6 +59,7 @@ export default async function CompanyPage({
 
   return (
     <Container className="py-6 md:py-10">
+      <ExampleNotice />
       <Breadcrumbs
         items={[
           { label: "Utleiere", href: "/utleiere" },

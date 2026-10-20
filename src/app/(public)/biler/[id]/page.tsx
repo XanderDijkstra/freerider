@@ -1,3 +1,4 @@
+import { ExampleNotice } from "@/components/ExampleNotice";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -63,6 +64,8 @@ export async function generateMetadata({
     title: `${vehicle.make} ${vehicle.model} ${listing.fromCity} → ${listing.toCity}`,
     description: `Flytt ${vehicle.make} ${vehicle.model} fra ${listing.fromCity} til ${listing.toCity} ${formatDate(listing.pickupStart)}. ${formatKm(listing.distanceKm)}. ${formatKg(co2.savedKg)} CO₂ spart. Søk nå.`,
     alternates: { canonical: `/biler/${listing.id}` },
+    // Example listings until real rental companies are onboarded.
+    robots: { index: false, follow: true },
   };
 }
 
@@ -100,6 +103,7 @@ export default async function ListingDetailPage({
 
   return (
     <Container className="py-6 md:py-10">
+      <ExampleNotice />
       <Breadcrumbs
         items={[
           { label: "Ledige biler", href: "/biler" },

@@ -20,7 +20,7 @@ export default async function ProfilPage({
   searchParams: Promise<{ saved?: string }>;
 }) {
   const session = await getSession();
-  const companyId = session?.companyId ?? "c-hertz";
+  const companyId = session?.companyId ?? "c-fjordlys";
   const company = getCompanyById(companyId);
   const profile = getCompanyProfile(companyId);
   const { saved } = await searchParams;

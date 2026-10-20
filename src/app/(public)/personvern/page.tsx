@@ -24,7 +24,7 @@ export default function PersonvernPage() {
         <section className="mt-8 space-y-4 text-[color:var(--foreground)]">
           <h2 className="font-heading text-xl font-semibold">Behandlingsansvarlig</h2>
           <p>
-            FreeRider AS, Storgata 1, 0155 Oslo, org.nr 000 000 000, er behandlingsansvarlig
+            FX MEDIA AS, Ringlevegen 4, 7655 Verdal, org.nr 930 724 548, er behandlingsansvarlig
             for personopplysningene vi samler inn på FreeRider.no.
           </p>
 

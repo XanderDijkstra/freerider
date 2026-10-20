@@ -1,3 +1,4 @@
+import { ExampleNotice } from "@/components/ExampleNotice";
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -9,7 +10,7 @@ import { breadcrumbSchema, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Utleiere på FreeRider.no",
   description:
-    "Se alle bilutleiere som tilbyr relokeringsbiler på FreeRider.no. Hertz, Avis, Sixt, Budget og flere.",
+    "Se alle bilutleiere som tilbyr relokeringsbiler på FreeRider.no.",
   alternates: { canonical: "/utleiere" },
 };
 
@@ -17,6 +18,7 @@ export default function UtleierePage() {
   return (
     <Container className="py-6 md:py-10">
       <Breadcrumbs items={[{ label: "Utleiere" }]} />
+      <ExampleNotice />
       <header className="mt-3">
         <h1 className="font-heading text-3xl md:text-4xl font-semibold">
           Utleiere

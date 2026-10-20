@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PreferredSourceCard } from "@/components/PreferredSourceButton";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
@@ -95,6 +96,9 @@ export default async function BlogArticle({
               <LinkButton href="/biler">Se ledige biler</LinkButton>
             </div>
           </Card>
+        </div>
+        <div className="mt-10">
+          <PreferredSourceCard />
         </div>
       </article>
 

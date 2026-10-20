@@ -21,7 +21,7 @@ import { formatKg, formatDate } from "@/lib/format";
 export const metadata: Metadata = {
   title: "FreeRider.no - Kjør gratis. Flytt bilen. Spar CO₂.",
   description:
-    "Norges marked for gratis bilflytting. Hertz, Avis, Sixt og flere trenger biler flyttet - du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
+    "Norges marked for gratis bilflytting. Bilutleiere trenger biler flyttet - du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
   alternates: { canonical: "/" },
 };
 
@@ -121,8 +121,8 @@ export default function HomePage() {
       <Container className="py-12 md:py-16">
         <SectionHeading
           eyebrow="Utleiere"
-          title="Hele bransjen på ett sted"
-          description="Hertz, Avis, Sixt, Budget og uavhengige aktører. Vi samler tilbudet."
+          title="Utleiere på FreeRider"
+          description="Vi er i oppstart. Utleierne under er eksempler som viser hvordan profilene ser ut."
         />
         <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {companies.slice(0, 6).map((c) => (
@@ -191,6 +191,31 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+      </Container>
+
+      <Container className="py-12 md:py-16">
+        <SectionHeading
+          eyebrow="Reis gratis"
+          title="Populære spørsmål om gratis bil"
+        />
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+          {[
+            { href: "/gratis-leiebil", label: "Gratis leiebil i Norge" },
+            { href: "/kjore-bil-gratis", label: "Kjøre bil gratis mellom byene" },
+            { href: "/kjore-bil-gratis/oslo-bergen", label: "Kjøre bil gratis Oslo – Bergen" },
+            { href: "/enveis-leiebil", label: "Enveis leiebil uten gebyr" },
+            { href: "/gratis-leiebil/oslo", label: "Gratis leiebil Oslo" },
+            { href: "/gratis-leiebil/trondheim", label: "Gratis leiebil Trondheim" },
+            { href: "/gratis-leiebil/bergen", label: "Gratis leiebil Bergen" },
+            { href: "/jobb-flytte-biler", label: "Jobb med å flytte biler" },
+          ].map((l) => (
+            <li key={l.href}>
+              <Link href={l.href} className="block rounded-lg border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 hover:border-[color:var(--primary)]">
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Container>
 
       <Container className="py-12 md:py-16">

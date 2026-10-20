@@ -3,7 +3,7 @@ import type { Vehicle } from "./types";
 export const vehicles: Vehicle[] = [
   {
     id: "v-1",
-    companyId: "c-hertz",
+    companyId: "c-fjordlys",
     plate: "EK 12345",
     make: "Volkswagen",
     model: "ID.4",
@@ -19,7 +19,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-2",
-    companyId: "c-hertz",
+    companyId: "c-fjordlys",
     plate: "EK 22456",
     make: "Toyota",
     model: "Yaris",
@@ -34,7 +34,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-3",
-    companyId: "c-avis",
+    companyId: "c-vidda",
     plate: "DR 91230",
     make: "Tesla",
     model: "Model Y",
@@ -50,7 +50,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-4",
-    companyId: "c-avis",
+    companyId: "c-vidda",
     plate: "DR 33871",
     make: "Volvo",
     model: "V60",
@@ -65,7 +65,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-5",
-    companyId: "c-sixt",
+    companyId: "c-polar",
     plate: "PD 55012",
     make: "Polestar",
     model: "2",
@@ -81,7 +81,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-6",
-    companyId: "c-sixt",
+    companyId: "c-polar",
     plate: "PD 71204",
     make: "BMW",
     model: "iX",
@@ -97,7 +97,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-7",
-    companyId: "c-budget",
+    companyId: "c-sorlandsbil",
     plate: "JK 24580",
     make: "Renault",
     model: "Clio",
@@ -112,7 +112,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-8",
-    companyId: "c-rentit",
+    companyId: "c-vestbil",
     plate: "VK 19884",
     make: "Mercedes",
     model: "Vito",
@@ -127,7 +127,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-9",
-    companyId: "c-arctic",
+    companyId: "c-midnattsol",
     plate: "TR 30021",
     make: "Subaru",
     model: "Outback",
@@ -142,7 +142,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "v-10",
-    companyId: "c-hertz",
+    companyId: "c-fjordlys",
     plate: "EK 41099",
     make: "Hyundai",
     model: "Kona Electric",

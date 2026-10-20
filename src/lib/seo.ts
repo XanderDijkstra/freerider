@@ -76,7 +76,7 @@ export function articleSchema(opts: {
     mainEntityOfPage: absoluteUrl(opts.url),
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
-    author: { "@type": "Person", name: opts.author ?? "FreeRider redaksjon" },
+    author: { "@type": "Organization", name: opts.author ?? "FreeRider-redaksjonen" },
     publisher: organizationSchema(),
     ...(opts.image ? { image: absoluteUrl(opts.image) } : {}),
   };

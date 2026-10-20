@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     template: "%s | FreeRider.no",
   },
   description:
-    "Norges marked for gratis bilflytting. Hertz, Avis, Sixt og flere trenger biler flyttet - du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
+    "Norges marked for gratis bilflytting. Bilutleiere trenger biler flyttet - du får gratis biltur. Lavere kostnader for utleier, lavere CO₂ for alle.",
   applicationName: "FreeRider.no",
-  authors: [{ name: "FreeRider AS" }],
+  authors: [{ name: "FreeRider.no" }],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

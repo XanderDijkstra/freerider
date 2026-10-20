@@ -1,3 +1,4 @@
+import { ExampleNotice } from "@/components/ExampleNotice";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
@@ -76,6 +77,7 @@ export default async function BilerPage({
   return (
     <Container className="py-6 md:py-10">
       <Breadcrumbs items={[{ label: "Ledige biler" }]} />
+      <ExampleNotice />
       <header className="mt-3 flex items-end justify-between flex-wrap gap-3">
         <div>
           <h1 className="font-heading text-3xl md:text-4xl font-semibold">

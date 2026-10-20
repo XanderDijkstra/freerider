@@ -16,7 +16,7 @@ export default async function FlateePage({
   searchParams: Promise<{ added?: string }>;
 }) {
   const session = await getSession();
-  const companyId = session?.companyId ?? "c-hertz";
+  const companyId = session?.companyId ?? "c-fjordlys";
   const myVehicles = vehiclesForCompany(companyId);
   const { added } = await searchParams;
 
